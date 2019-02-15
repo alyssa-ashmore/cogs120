@@ -125,12 +125,13 @@ and is wrapped around the whole page content,-->
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
+  }
     // each <a> element
     // class="... tag"
     // prompt2.js
     document.getElementById("tag1").innerHTML = getParameterByName('tag1');
     document.getElementById("tag2").innerHTML = getParameterByName('tag2');
+  
   
   function download(){
     var text = document.getElementById("exampleFormControlTextarea2").value;
