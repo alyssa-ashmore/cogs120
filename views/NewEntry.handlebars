@@ -87,8 +87,8 @@ and is wrapped around the whole page content,-->
       <!-- TAG AND SAVE -->
       <div class="w3-row w3-card-4 w3-padding-small w3-white">
         <div class="col-xs-10">
-          <span class="w3-tag">Happy</span>
-					<span class="w3-tag">Work</span>
+          <span id="tag1" class="w3-tag"></span>
+					<span id="tag2" class="w3-tag"></span>
           <button type="button mx-auto" class="btn btn-default" id="myBtn" onclick="download()">Save</button>
           <!-- Trigger/Open The Modal -->
 
@@ -116,6 +116,21 @@ and is wrapped around the whole page content,-->
   function goBack() {
 		window.history.back();
 }
+
+  function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+    // each <a> element
+    // class="... tag"
+    // prompt2.js
+    document.getElementById("tag1").innerHTML = getParameterByName('tag1');
+    document.getElementById("tag2").innerHTML = getParameterByName('tag2');
   
   function download(){
     var text = document.getElementById("exampleFormControlTextarea2").value;
