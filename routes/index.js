@@ -39,9 +39,9 @@ exports.viewentry = function(req, res){
 };
 
 exports.prompt1 = function(req, res){
-	res.render('Prompt1');
+	res.render('prompt1');
 };
 
 exports.prompt2 = function(req, res){
-	res.render('Prompt2');
+	res.render('prompt2');
 };
