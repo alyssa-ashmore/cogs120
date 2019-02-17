@@ -34,8 +34,9 @@
     <header class="w3-panel w3-center w3-opacity w3-padding-16">
       <div class="w3-padding-small">
         <div class="w3-bar w3-border">
-          <button class="w3-bar-item w3-button" onclick="goBack()">back</button>
-          <a href="/homepage" class="w3-bar-item w3-button ">home</a>
+          <img src="back.png" onclick="goBack()" class="navicon w3-bar-item w3-button "></img>
+          <a href="/homepage"> <img src="home.svg" class="navicon w3-bar-item w3-button "></img></a>
+          <img src="instruction.png" onclick="document.getElementById('id01').style.display='block'" class="navicon w3-bar-item w3-button"></img>
         </div>
       </div>
 
@@ -52,8 +53,8 @@
 								<h8>SCHOOL</h8>
 							</button></a>
 					</div>
-                </div>                                                                                             
-        
+                </div>
+
                 <div class="w3-cell-row">
 					<div class=" w3-cell-middle">
 						<a href="/newentry?tag2=work" class="tag"> <button id='work' class="w3-btn w3-round-xlarge
@@ -106,7 +107,7 @@
 </body><!-- END BODY -->
 <script>
 		function goBack() {
-		window.history.back();  
+		window.history.back();
 }
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
@@ -122,7 +123,7 @@
     // prompt2.js
     var tag1 = getParameterByName('tag1')
     var tags = document.querySelectorAll('.tag')
-    
+
     for(var i = 0; i < tags.length; i++) {
         tags[i].setAttribute('href', tags[i].getAttribute('href') + '&tag1=' + tag1)
     }
