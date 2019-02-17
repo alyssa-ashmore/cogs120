@@ -5,30 +5,43 @@ window.onload=function(){
 
 const tl = new TimelineMax({onComplete:done, paused:true});
 const elem = document.getElementById('ellipse-53');
-const pauseBtn = document.getElementById('btn1');
-const playBtn = document.getElementById('btn2');
+var playBtn = document.getElementById('btn1');
+const playForm = document.getElementById('textArea');
 
 const restartBtn = document.getElementById('btn4');
 
 //elem.style.opacity = 0; moved to Set
 let duration = 1;
-var currentTimeScale = tl.timeScale(.1); //gets current timeScale
+var currentTimeScale = tl.timeScale(1); //gets current timeScale
 let paused = tl.paused();
 
 
 
-pauseBtn.addEventListener('click', function(e) {
-
-   tl.pause();
-
-});
-
 playBtn.addEventListener('click', function(e) {
-  tl.resume();
-});
 
+  if(paused) {
+    tl.play();
+     playBtn.innerHTML = "<i class='far fa-pause-circle'></i>";
+    paused=false;
+ }
+
+ else{
+   tl.pause();
+   playBtn.innerHTML = "<i class='far fa-play-circle'></i>" ;
+   paused=true;
+    }
+  });
+
+playForm.addEventListener('click', function(e){
+  tl.play();
+document.getElementById('btn1').innerHTML = "<i class='far fa-pause-circle'></i>";
+  paused=false;
+});
+//maybe delete the restart, but i feel like if they forget, they should be able to restart
 restartBtn.addEventListener('click', function(e) {
   tl.restart();
+  t1.pause();
+  paused=true;
 });
 
 function done(){
