@@ -45,7 +45,6 @@ and is wrapped around the whole page content,-->
 
 
         <div class="container">
-          <form action="/homepage">
             <div class="row">
               <h3 class="w3-content w3-center">Login with Social Media or Manually</h3>
             <!--  <div class="vl w3-center" style="vertical-align: align:center">
@@ -69,15 +68,14 @@ and is wrapped around the whole page content,-->
                   <p>Or sign in manually:</p>
                 </div>
 
-                <form action="ProfilePage.handlebars" method="GET">
-                  <input type="text" name="username" placeholder="Username" required>
-                  <input type="password" name="password" placeholder="Password" required>
-                  <button type="submit" href="/homepage"> Login </button>
+                <form action="/homepage" method="GET">
+                  <input type="text" id="username" name="username" placeholder="Username" required>
+                  <input type="password" id="password" name="password" placeholder="Password" required>
+                  <button id="doLogin"> Login </button>
                 </form>
               </div>
 
             </div>
-          </form>
         </div>
 
         <div class="bottom-container">
@@ -102,6 +100,21 @@ and is wrapped around the whole page content,-->
 <script src="https://code.jquery.com/jquery.js"></script>
 <!-- Include all compiled plugins (blelow), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+
+
+
+<script>
+  $(document).ready(function(){
+    $("#doLogin").click(function(){
+      var userName = $("#username").val();
+      console.log(userName);
+      if (userName === "") {
+        alert("Invalid user name!!!");
+      }
+      localStorage.setItem("userName", userName);
+    });
+  });
+</script>
 
 <!-- <script>
   function getUsername() {

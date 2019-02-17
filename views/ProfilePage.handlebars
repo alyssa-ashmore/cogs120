@@ -76,20 +76,10 @@
 		window.history.back();
 }
 
+// show user userName
+var loginUserName = localStorage.getItem("userName");
+$("#user").text(loginUserName);
 
-  function processUser()
-  {
-    console.log(location.search);
-    var parameters = location.search.substring(1).split("&");
-    console.log(parameters);
-    var temp = parameters[0].split("=");
-    console.log(temp);
-    var name = unescape(temp[1]);
-    document.getElementById("user").innerHTML = name;
-    console.log(name);
-  }
-
-  processUser();
 
 </script>
 
