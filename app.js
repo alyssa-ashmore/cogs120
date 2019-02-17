@@ -26,7 +26,8 @@ app.use(express.cookieParser('IxD secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('./images')); 
+app.use(express.static('./images'));
+app.use(express.static('./public/js'));
 
 // development only
 if ('development' == app.get('env')) {
