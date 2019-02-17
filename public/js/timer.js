@@ -3,7 +3,7 @@ window.onload=function(){
 
 
 
-const tl = new TimelineMax({onComplete:done, paused:true});
+const tl = new TimelineMax({immediateRender:true,paused:true});
 const elem = document.getElementById('ellipse-53');
 var playBtn = document.getElementById('btn1');
 const playForm = document.getElementById('textArea');
@@ -14,6 +14,7 @@ const restartBtn = document.getElementById('btn4');
 let duration = 1;
 var currentTimeScale = tl.timeScale(1); //gets current timeScale
 let paused = tl.paused();
+
 
 
 
@@ -39,8 +40,8 @@ document.getElementById('btn1').innerHTML = "<i class='far fa-pause-circle'></i>
 });
 //maybe delete the restart, but i feel like if they forget, they should be able to restart
 restartBtn.addEventListener('click', function(e) {
-  tl.restart();
-  t1.pause();
+  tl.time(0);
+  tl.pause();
   paused=true;
 });
 
