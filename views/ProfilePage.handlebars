@@ -45,6 +45,7 @@
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
               <p class="title">Username: </p>
+              <p id="user" class="title"></p>
         </div>
       </div>
     </div>
@@ -56,7 +57,7 @@
 
 		  <div class="w3-cell-row ">
      		 <div class=" w3-cell-middle">
-              <p class="title">Username: </p>
+              <p class="title">entries # </p>
         	 </div>
 		  </div>
 	  </div>
@@ -71,9 +72,28 @@
 </body><!-- END BODY -->
 
 <script>
-		function goBack() {
+	function goBack() {
 		window.history.back();
 }
+
+
+  function processUser()
+  {
+    console.log(location.search);
+    var parameters = location.search.substring(1).split("&");
+    console.log(parameters);
+    var temp = parameters[0].split("=");
+    console.log(temp);
+    var name = unescape(temp[1]);
+    document.getElementById("user").innerHTML = name;
+    console.log(name);
+  }
+
+  processUser();
+
 </script>
+
+
+
 
 </html>
