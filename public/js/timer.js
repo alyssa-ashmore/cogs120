@@ -1,7 +1,6 @@
 // https://www.august.com.au/blog/svg-animation-with-greensock/
+
 window.onload=function(){
-
-
 
 const tl = new TimelineMax({immediateRender:true,paused:true});
 const elem = document.getElementById('ellipse-53');
