@@ -14,7 +14,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 <script src="js/timer.js"></script>
-<script src="js/proj.js"></script>
+
 
 
 <title>Entry Page</title>
@@ -54,9 +54,9 @@ and is wrapped around the whole page content,-->
 
                 <H2 class="w3-center">User Guide</H2>
 
-                <div class=" w3-content w-3center w3-panel">
+                <div class=" w3-content w3-panel">
                   <div class="w3-col">
-                    <a href="#new" class="btn btn-info w3-card w3-panel w3-hover-pink w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>make a new entry?</b></a>
+                    <a href="#new" class="btn btn-info w3-card w3-panel w3-hover-pink w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>make a new entry? <i class="fa fa-caret-down"></i></b></a>
                     <div id="new" class="collapse w3-panel w3-card">
                       <p>
                         1. Click on "New Entry" on the home page <br>
@@ -69,7 +69,7 @@ and is wrapped around the whole page content,-->
                       </p>
                     </div>
 
-                    <a href="#view" class="btn btn-info w3-hover-pink w3-panel w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>find</b> my past entries?<i class="fa fa-caret-down"></i></a>
+                    <a href="#view" class="btn btn-info w3-hover-pink w3-panel w3-card w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>find</b> my past entries? <i class="fa fa-caret-down"></i></a>
                     <div id="view" class="collapse w3-card w3-panel">
                       <p>
                         1. Click on "" on the home page <br>
@@ -78,7 +78,7 @@ and is wrapped around the whole page content,-->
                       </p>
                     </div>
 
-                    <a href="#edit" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>edit</b> my past entries?<i class="fa fa-caret-down"></i></a>
+                    <a href="#edit" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-card w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>edit</b> my past entries? <i class="fa fa-caret-down"></i></a>
                     <div id="edit" class="collapse w3-card w3-panel">
                       <p>
                         1. Click on "" on the home page <br>
@@ -88,7 +88,7 @@ and is wrapped around the whole page content,-->
                       </p>
                     </div>
                     <H4></H4>
-                    <a href="#delete" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>delete</b> my past entries?<i class="fa fa-caret-down"></i></a>
+                    <a href="#delete" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-card w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>delete</b> my past entries? <i class="fa fa-caret-down"></i></a>
                     <div id="delete" class="collapse w3-card w3-panel">
                       <p>
                         1. Click on "" on the home page <br>
@@ -107,7 +107,9 @@ and is wrapped around the whole page content,-->
         </div>
       </div>
 
-  </header>
+    </header>
+
+
 
 
     <div class="w3-card-4 w3-margin w3-white">
@@ -214,10 +216,9 @@ and is wrapped around the whole page content,-->
             </svg>
           </div>
 
-          <!--Timer-->
+          <!--Timer updates 2/16 -->
           <div class="tool">
-            <button class="w3-btn" id="btn1"><i class='far fa-pause-circle'></i></button>
-            <button class="w3-btn" id="btn2"><i class='far fa-play-circle'></i></button>
+            <button class="w3-btn" id="btn1"><i class='far fa-play-circle'></i></button>
             <button class="w3-btn" id="btn4"><i class="fas fa-undo-alt"></i></button>
           </div>
 
@@ -231,89 +232,27 @@ and is wrapped around the whole page content,-->
         <div class="w3-col s9 w3-center w3-white w3-padding-small">
 
           <div class="form-group">
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" placeholder="Write here, right now..." rows="5"></textarea>
+            <textarea class="form-control rounded-0" id="textArea" placeholder="Write here, right now..." rows="5"></textarea>
           </div>
           <!-- TAG AND SAVE -->
           <div class="w3-row w3-card-4 w3-padding-small w3-white">
             <div class="col-xs-10">
               <span class="w3-tag">Happy</span>
               <span class="w3-tag">Work</span>
-              <button type="button mx-auto" class="btn w3-teal btn-default" onclick="download()">Save</button>
-              <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <p>Draft Saved!</p>
-          </div>
+              <button type="button mx-auto" id="save" class="btn w3-teal btn-default" onclick="download()">Save</button>
             </div>
+
+          </div>
 
         </div><!-- END FORM -->
 
 
 
-    </div><!-- END CONTENT-->
+      </div><!-- END CONTENT-->
 
 
-    <!-- END BODY -->
+      <!-- END BODY -->
 </body>
-
-<script>
-    function goBack() {
-		window.history.back();
-  }
-  
-  function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-    // each <a> element
-    // class="... tag"
-    // prompt2.js
-    document.getElementById("tag1").innerHTML = getParameterByName('tag1');
-    document.getElementById("tag2").innerHTML = getParameterByName('tag2');
-  
-    function download(){
-    var text = document.getElementById("exampleFormControlTextarea2").value;
-    text = text.replace(/\n/g, "\r\n"); // To retain the Line breaks.
-    var blob = new Blob([text], { type: "text/plain"});
-    var anchor = document.createElement("a");
-    anchor.download = "entries.txt";
-    anchor.href = window.URL.createObjectURL(blob);
-    anchor.target ="_blank";
-    anchor.style.display = "none"; // just to be safe!
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-  }
-  
-  // Get the modal
-  var modal = document.getElementById('myModal');
-  // Get the button that opens the modal
-  var btn = document.getElementById("myBtn");
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-  // When the user clicks the button, open the modal 
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-</script>
 
 
 </html>

@@ -40,11 +40,20 @@
 
 				<div class="w3-cell-row">
 					<div class=" w3-cell-middle">
-								<h1>this is an entry</h1>
+								<p id="content"></p>
 
 					</div>
 				</div>
+
+        <div class="w3-row w3-card-4 w3-padding-small w3-white">
+          <div class="col-xs-10">
+            <span id="tag1" class="w3-tag"></span>
+            <span id="tag2" class="w3-tag"></span>
+
+        </div>
 			</div>
+
+
 
 
     <!-- END CONTENT -->
@@ -54,6 +63,15 @@
 <script>
 		function goBack() {
 		window.history.back();
-}
+    }
+
+    var localEntry = JSON.parse(localStorage.getItem("entry"));
+    var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
+    if (lastItem) {
+      $("#content").text(lastItem.content);
+      $("#tag1").text(lastItem.tag1);
+      $("#tag2").text(lastItem.tag2);
+      console.log(content);
+    }
 </script>
 </html>
