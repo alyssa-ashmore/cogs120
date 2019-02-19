@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/styling.css" rel="stylesheet">
 
-  
+
   <script>
     window.fbAsyncInit = function() {
       FB.init({
@@ -46,6 +46,8 @@
 <!-- light grey bg for large screens -->
 
 <body class="w3-light-grey w3-padding-16">
+  <div id="fb-root"></div>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=235144894095418&autoLogAppEvents=1"></script>
   <!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content,-->
   <div class="w3-content w3-white w3-padding-64" style="max-width:800px; height:500px; max-height:800px">
@@ -77,9 +79,13 @@ and is wrapped around the whole page content,-->
               </div>-->
 
               <div class="col">
-                <a href="#" class="fb btn">
+                <a href="#" class="fb btn"><div class="fb-login-button" data-width="150" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
                   <i class="fa fa-facebook fa-fw"></i> Facebook
                 </a>
+                <fb:login-button
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
                 <a href="#" class="twitter btn">
                   <i class="fa fa-twitter fa-fw"></i> Twitter
                 </a>
@@ -95,7 +101,7 @@ and is wrapped around the whole page content,-->
 
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <button href="/homepage"> Login </button>
+                <button href="http://localhost:3000/homepage"> Login </button>
               </div>
 
             </div>

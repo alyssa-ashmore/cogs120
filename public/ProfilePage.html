@@ -9,14 +9,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="css/styling.css">
+  <link rel="stylesheet" href="../public/css/styling.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="http://www.w3schools.com/lib/w3data.js"></script>
   <title>Profile Page</title>
 </head>
-
 
 <body class="w3-light-grey w3-padding-16">
   <!-- light grey bg for large screens -->
@@ -25,19 +25,7 @@
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
 
  <!-- Header -->
-    <header class="w3-panel w3-center w3-opacity w3-padding-16">
-      <div class="w3-padding-small">
-        <div class="w3-bar w3-border">
-					<button class="w3-bar-item w3-button" onclick="goBack()">back</button>
-          <!--other nav buttons
-        <a href="#" class="w3-bar-item w3-button w3-light-grey"></a>
-        <a href="#" class="w3-bar-item w3-button"></a>
-      -->
-          <a href="/homepage" class="w3-bar-item w3-button ">home</a>
-        </div>
-      </div>
-
-    </header>
+<div data-includeHTML="header.html"></div>
 
     <!-- CONTENT-->
 	<div class="w3-container">
@@ -51,7 +39,7 @@
         </div>
       </div>
     </div>
-	  
+
 	  <div class="w3-container">
 		<p class="title w3-margin"> Total Entries </p>
 	  </div>
@@ -63,7 +51,7 @@
         	 </div>
 		  </div>
 	  </div>
-	  
+
 
 
 
@@ -73,10 +61,13 @@
   </div><!-- END CONTAINER -->
 </body><!-- END BODY -->
 
+
 <script>
-		function goBack() {
-		window.history.back();
-}
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
 </script>
-	
+
 </html>
