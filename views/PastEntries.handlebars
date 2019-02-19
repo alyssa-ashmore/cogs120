@@ -98,6 +98,19 @@
   		<p class="title w3-margin"> Past Entries</p>
   	  </div>
       <div class="w3-card-4 w3-white w3-margin">
+        <div class="w3-cell-row">
+          <div class="col-xs-10">
+            <span class="w3-tag" id="tag1"></span>
+            <span class="w3-tag" id="tag2"></span>
+          </div>
+          <div class=" w3-cell-middle">
+            <div class="w3-cell-middle">
+  						<a href="/entrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block">
+  								<h3 id="date"></h3>
+  						</button></a>
+            </div>
+          </div>
+        </div>
         {{#each entry}}
         <div class="w3-cell-row">
           <div class="col-xs-10">
@@ -124,9 +137,17 @@
 </body><!-- END BODY -->
 
 <script>
-		function goBack() {
-		window.history.back();
-}
+	function goBack() {
+	window.history.back();
+  }
+  var localEntry = JSON.parse(localStorage.getItem("entry"));
+  var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
+  if (lastItem) {
+    $("#date").text(lastItem.date);
+    $("#tag1").text(lastItem.tag1);
+    $("#tag2").text(lastItem.tag2);
+    console.log(content);
+  }
 </script>
 
 </html>
