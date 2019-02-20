@@ -31,13 +31,9 @@
   and is wrapped around the whole page content-->
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
 
-
-
     <!-- Header -->
-   <div data-includeHTML="header.html"></div>
-     <!-- Header -->
 
-
+    </header>
 
     <p class="w3-xlarge" align="center">WHAT ARE YOU THINKING ABOUT?</p>
 
@@ -96,7 +92,7 @@
 
               <form id="form1" class="tag" method="GET">
               <input type="text" id="tag2" name="tag2" placeholder="Enter Tag..." required>
-              <input onsubmit="entryPage(this);" id= "submit" type="submit">
+              <input id= "submit" type="submit">
               </form>
               </a>
             </button>
@@ -107,15 +103,6 @@
 
   </div><!-- END CONTAINER -->
 </body><!-- END BODY -->
-
-<script>
-    $(document).ready(function () {
-        $("div[data-includeHTML]").each(function () {
-            $(this).load($(this).attr("data-includeHTML"));
-        });
-    });
-</script>
-
 <script>
 
   $('#tag2').hide();
@@ -129,12 +116,14 @@
   }
 
   $(document).ready(function(){
-    $("#doLogin").click(function(){
+    $("#submit").click(function(){
       var tag2 = $("#tag2").val();
       if (tag2 === "") {
         alert("Must enter a tag");
       }
-      localStorage.setItem("tag2", tag2);
+      window.location.href = "/newentry?tag2=" + tag2 + '&tag1=' + getParameterByName('tag1');
+      console.log(tag2);
+      return false;
     });
   });
 
@@ -151,13 +140,13 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
-
+/*
     function entryPage(my_form)
     {
-      var tag2 = getParameterByName('tag2')
-      window.location.href = "/newentry?tag2=" + tag2 + '&tag1=' + getParameterByName('tag1')
+      window.location.href = "/newentry?tag2=" + tag2 + '&tag1=' + getParameterByName('tag1');
+      return false;
     }
-
+*/
     // each <a> element
     // class="... tag"
     // prompt2.js
