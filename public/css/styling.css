@@ -1,3 +1,8 @@
+.pastentry{
+  overflow: scroll;
+  height: 300px;
+}
+
 #appname {
   font-size: 30px;
   margin-top: -10px;
@@ -21,7 +26,7 @@
 
 .title {
 	text-align: center;
-	font-size: 10px;
+	font-size: 20px;
 }
 
 .window {
