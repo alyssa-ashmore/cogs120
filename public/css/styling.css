@@ -25,6 +25,7 @@
   padding: 20px 0 30px 0;
 }
 
+/* removes underlines and blue color for new entry text */
 .w3-btn:hover {
   color: black;
   text-decoration: none;
