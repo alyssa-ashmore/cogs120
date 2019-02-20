@@ -1,7 +1,4 @@
 
-/*
- * GET home page.
- */
 
 exports.view = function(req, res){
   res.render('index');
@@ -21,6 +18,8 @@ exports.postentry = function(req, res){
 exports.profile = function(req, res){
 	res.render('ProfilePage');
 };
+
+// var fs = require('fs');
 
 exports.newentry = function(req, res){
 	res.render('NewEntry');

@@ -242,8 +242,9 @@ pauseBtn.addEventListener('click',pauseTimer);
       popup.classList.toggle("show");
     }
 
-    ////unsaved Function////////////////////////////////////////////////////////
-    var unsaved = false;
+
+  ////unsaved Function////////////////////////////////////////////////////////
+  var unsaved = false;
 
 $(":input").change(function(){ //triggers change in all input fields including text type
     unsaved = true;

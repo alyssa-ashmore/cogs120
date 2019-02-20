@@ -6,9 +6,15 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
+var handlebars = require('express3-handlebars');
 
 var index = require('./routes/index');
+// var fs = require('fs');
+// console.log(fs);
+// var data = fs.readFileSync('./entry.json');
+// var entry = data.toString('utf8');
+// console.log(entry);
+
 
 var app = express();
 
@@ -25,8 +31,10 @@ app.use(express.methodOverride());
 app.use(express.cookieParser('IxD secret key'));
 app.use(express.session());
 app.use(app.router);
+// app.use(fs);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('./images')); 
+app.use(express.static('./images'));
+app.use(express.static('./public/js'));
 
 // development only
 if ('development' == app.get('env')) {
