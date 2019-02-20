@@ -12,14 +12,13 @@
   <link href="css/styling.css" rel="stylesheet">
 
 
-
   <script>
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '{your-app-id}',
+        appId      : '235144894095418',
         cookie     : true,
         xfbml      : true,
-        version    : '{api-version}'
+        version    : '3.2'
       });
 
       FB.AppEvents.logPageView();
@@ -33,6 +32,19 @@
        js.src = "https://connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
+     FB.login(function(response) {
+    if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+       console.log('Good to see you, ' + response.name + '.');
+     });
+    } else {
+     console.log('User cancelled login or did not fully authorize.');
+    }
+});
+
+
   </script>
 
   <script src="../js/proj.js"></script>
@@ -80,7 +92,7 @@ and is wrapped around the whole page content,-->
               </div>-->
 
               <div class="col">
-                <a href="#" class="fb btn">
+                <a href="JavaScript:FB.login()" class="fb btn">
                   <i class="fa fa-facebook fa-fw"></i> Facebook
                 </a>
                 <a href="#" class="twitter btn">
