@@ -95,13 +95,13 @@
 
     <!-- CONTENT-->
 	<div class="w3-container">
-		<p class="title w3-margin"> profile</p>
+		<p class="title w3-margin"> Profile</p>
 	  </div>
     <div class="w3-card-4 w3-white w3-margin">
 
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
-              <p class="title">Username: </p>
+              <p>Username: </p>
               <p id="user" class="title"></p>
         </div>
       </div>
@@ -114,7 +114,7 @@
 
 		  <div class="w3-cell-row ">
      		 <div class=" w3-cell-middle">
-              <p class="title">entries # </p>
+              <p id="numofentries"></p>
         	 </div>
 		  </div>
 	  </div>
@@ -136,6 +136,9 @@
 // show user userName
 var loginUserName = localStorage.getItem("userName");
 $("#user").text(loginUserName);
+
+var numofentries = JSON.parse(localStorage.entry).length + 3;
+$("#numofentries").text(numofentries);
 
 
 </script>

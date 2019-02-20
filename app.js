@@ -49,6 +49,7 @@ app.get('/newentry',index.newentry);
 app.get('/tagspage',index.tagspage);
 app.get('/tagentries',index.tagentries);
 app.get('/entrycontent',index.viewentry);
+app.get('/oldentrycontent', index.viewold);
 app.get('/prompt1',index.prompt1);
 app.get('/prompt2',index.prompt2);
 

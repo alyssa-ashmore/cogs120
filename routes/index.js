@@ -37,6 +37,11 @@ exports.viewentry = function(req, res){
 	res.render('EntryContent');
 };
 
+exports.viewold = function(req, res){
+	res.render('OldEntryContent');
+};
+
+
 exports.prompt1 = function(req, res){
 	res.render('prompt1');
 };

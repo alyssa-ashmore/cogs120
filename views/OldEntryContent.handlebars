@@ -98,16 +98,16 @@
 
 				<div class="w3-cell-row">
 					<div class=" w3-cell-middle">
-                <p class="title" id="date"></p>
-								<p id="content"></p>
+                <p class="title" id="date">02/2019</p>
+								<p id="content">HERE IS SOME CONTENT</p>
 
 					</div>
 				</div>
 
         <div class="w3-row w3-card-4 w3-padding-small w3-white">
           <div class="col-xs-10">
-            <span id="tag1" class="w3-tag"></span>
-            <span id="tag2" class="w3-tag"></span>
+            <span id="tag1" class="w3-tag">TAG1</span>
+            <span id="tag2" class="w3-tag">TAG2</span>
 
         </div>
 			</div>
@@ -124,14 +124,5 @@
 		window.history.back();
     }
 
-    var localEntry = JSON.parse(localStorage.getItem("entry"));
-    var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
-    if (lastItem) {
-      $("#date").text(lastItem.date);
-      $("#content").text(lastItem.content);
-      $("#tag1").text(lastItem.tag1);
-      $("#tag2").text(lastItem.tag2);
-      console.log(content);
-    }
 </script>
 </html>
