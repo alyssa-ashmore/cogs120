@@ -41,8 +41,6 @@
      </div>
      <!-- Header -->
 
-
-
     <p class="w3-xlarge" align="center">HOW ARE YOU FEELING TODAY?</p>
 
     <!-- CONTENT-->
@@ -102,6 +100,7 @@
 
               <form action="/prompt2?tag1=" method="GET">
               <input type="text" id="tag1" name="tag1" placeholder="Enter Tag..." required>
+              <input id= "submit" type="submit">
               </form>
             </button>
 				  </div>
@@ -125,13 +124,15 @@
 </body><!-- END BODY -->
 
 <script>
-<<<<<<< HEAD
 
   $('#tag1').hide();
+  $('#submit').hide();
+
 
   function show() {
     $('#tag1').show();
     $('#plus').hide();
+    $('#submit').show();
   }
 
   $(document).ready(function(){
@@ -144,13 +145,11 @@
       localStorage.setItem("tag1", tag1);
     });
   });
-=======
     $(document).ready(function () {
         $("div[data-includeHTML]").each(function () {
             $(this).load($(this).attr("data-includeHTML"));
         });
     });
->>>>>>> e13e0b60b2457d1fa0aa1c94085b9fd8b1fc8b4b
 </script>
 
 <script>
