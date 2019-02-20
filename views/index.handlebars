@@ -49,6 +49,8 @@
   </script>
 
   <script src="../js/proj.js"></script>
+  {{> facebook}}
+<script src="/js/facebook.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -97,7 +99,8 @@ and is wrapped around the whole page content,-->
               </div>-->
 
               <div class="col">
-<div class="fb-login-button" data-width="200" data-size="medium" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button>
               </div>
 
               <div class="col">
