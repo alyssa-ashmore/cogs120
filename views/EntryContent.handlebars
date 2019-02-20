@@ -40,6 +40,7 @@
 
 				<div class="w3-cell-row">
 					<div class=" w3-cell-middle">
+                <p class="title" id="date"></p>
 								<p id="content"></p>
 
 					</div>
@@ -68,6 +69,7 @@
     var localEntry = JSON.parse(localStorage.getItem("entry"));
     var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
     if (lastItem) {
+      $("#date").text(lastItem.date);
       $("#content").text(lastItem.content);
       $("#tag1").text(lastItem.tag1);
       $("#tag2").text(lastItem.tag2);

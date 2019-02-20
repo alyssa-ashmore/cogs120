@@ -39,7 +39,7 @@
 
                 <H2 class="w3-center">User Guide</H2>
 
-                <div class=" w3-content w3-center w3-panel">
+                <div class=" w3-content w-3center w3-panel">
                   <div class="w3-col">
                     <a href="#new" class="btn btn-info w3-card w3-panel w3-hover-pink w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>make a new entry?</b></a>
                     <div id="new" class="collapse w3-panel w3-card">
@@ -91,42 +91,26 @@
         </div>
       </div>
 
-  </header>
+   </header>
 
     <!-- CONTENT-->
-    <div class="w3-container">
-  		<p class="title w3-margin"> Past Entries</p>
-  	  </div>
-      <div class="w3-card-4 w3-white w3-margin pastentry">
-        <div class="w3-cell-row">
+			<div class="w3-card-4 w3-margin-100 w3-white">
+
+				<div class="w3-cell-row">
+					<div class=" w3-cell-middle">
+                <p class="title" id="date">02/2019</p>
+								<p id="content">HERE IS SOME CONTENT</p>
+
+					</div>
+				</div>
+
+        <div class="w3-row w3-card-4 w3-padding-small w3-white">
           <div class="col-xs-10">
-            <span class="w3-tag" id="tag1"></span>
-            <span class="w3-tag" id="tag2"></span>
-          </div>
-          <div class=" w3-cell-middle">
-            <div class="w3-cell-middle">
-  						<a href="/entrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block w3-padding">
-  								<h3 id="date"></h3>
-  						</button></a>
-            </div>
-          </div>
+            <span id="tag1" class="w3-tag">TAG1</span>
+            <span id="tag2" class="w3-tag">TAG2</span>
+
         </div>
-        {{#each entry}}
-        <div class="w3-cell-row">
-          <div class="col-xs-10">
-            <span class="w3-tag">{{tag1}}</span>
-            <span class="w3-tag">{{tag2}}</span>
-          </div>
-          <div class=" w3-cell-middle">
-            <div class=" w3-cell-middle">
-  						<a href="/oldentrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block">
-  								<h3>{{date}}</h3>
-  						</button></a>
-            </div>
-          </div>
-        </div>
-        {{/each}}
-      </div>
+			</div>
 
 
 
@@ -135,33 +119,10 @@
 
   </div><!-- END CONTAINER -->
 </body><!-- END BODY -->
-
 <script>
-	function goBack() {
-	window.history.back();
-  }
-
-  var localEntry = JSON.parse(localStorage.getItem("entry"));
-  var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
-  if (lastItem) {
-    $("#date").text(lastItem.date);
-    $("#tag1").text(lastItem.tag1);
-    $("#tag2").text(lastItem.tag2);
-  }
-
-  //
-  // for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-  //   var key = localStorage.key(i);
-  //   var value = localStorage[key];
-  //   console.log(key + " => " + value);
-  //   if (key=="entry"){
-  //     var localEntry = JSON.parse(localStorage.getItem("entry"));
-  //     var item = localStorage.getItem(value) && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
-  //     $("#date").text(item.date);
-  //     $("#tag1").text(item.tag1);
-  //     $("#tag2").text(item.tag2);
-  //   }
+		function goBack() {
+		window.history.back();
+    }
 
 </script>
-
 </html>
