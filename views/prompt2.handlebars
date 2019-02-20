@@ -30,17 +30,14 @@
   and is wrapped around the whole page content-->
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
 
- <!-- Header -->
-    <header class="w3-panel w3-center w3-opacity w3-padding-16">
-      <div class="w3-padding-small">
-        <div class="w3-bar w3-border">
-          <img src="back.png" onclick="goBack()" class="navicon w3-bar-item w3-button "></img>
-          <a href="/homepage"> <img src="home.svg" class="navicon w3-bar-item w3-button "></img></a>
-          <img src="instruction.png" onclick="document.getElementById('id01').style.display='block'" class="navicon w3-bar-item w3-button"></img>
-        </div>
-      </div>
 
-    </header>
+
+    <!-- Header -->
+   <div data-includeHTML="header.html"></div>
+     </div>
+     <!-- Header -->
+
+
 
     <p class="w3-xlarge" align="center">WHAT ARE YOU THINKING ABOUT?</p>
 
@@ -105,6 +102,15 @@
 
   </div><!-- END CONTAINER -->
 </body><!-- END BODY -->
+
+<script>
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+</script>
+
 <script>
 		function goBack() {
 		window.history.back();

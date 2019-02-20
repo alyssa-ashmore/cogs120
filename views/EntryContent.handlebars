@@ -24,16 +24,10 @@
   and is wrapped around the whole page content-->
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
 
- <!-- Header -->
-    <header class="w3-panel w3-center w3-opacity w3-padding-16">
-      <div class="w3-padding-small">
-        <div class="w3-bar w3-border">
-          <button class="w3-bar-item w3-button" onclick="goBack()">back</button>
-          <a href="/homepage" class="w3-bar-item w3-button ">home</a>
-        </div>
-      </div>
-
-    </header>
+    <!-- Header -->
+   <div data-includeHTML="header.html"></div>
+     </div>
+     <!-- Header -->
 
     <!-- CONTENT-->
 			<div class="w3-card-4 w3-margin-100 w3-white">
@@ -61,6 +55,15 @@
 
   </div><!-- END CONTAINER -->
 </body><!-- END BODY -->
+
+<script>
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+</script>
+
 <script>
 		function goBack() {
 		window.history.back();
