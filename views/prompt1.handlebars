@@ -17,6 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <title></title>
+  
 </head>
 
 <style>
@@ -24,6 +25,7 @@
     text-align: center;
     margin-bottom: 1%;
 }
+
 </style>
 
 <body class="w3-light-grey w3-padding-16">
@@ -80,7 +82,7 @@
 					</div>
 				</div>
 
-                 <div class="w3-cell-row">
+        <div class="w3-cell-row">
 					<div class=" w3-cell-middle">
 						<a href="/prompt2?tag1=anxious"> <button id='anxious' class="w3-btn w3-round-xlarge
                          w3-border w3-border-blue" >
@@ -89,7 +91,23 @@
 					</div>
 				</div>
 
-                 <div class="w3-cell-row">
+        
+        <div class="w3-cell-row">
+					<div class=" w3-cell-middle">            
+
+            <button class="w3-btn w3-round-xlarge w3-border w3-border-blue" 
+                    onclick='show()' >
+              <h8 id="plus"> + </h8>
+
+              <form action="/prompt2?tag1=" method="GET">
+              <input type="text" id="tag1" name="tag1" placeholder="Enter Tag..." required>
+              </form>
+            </button>
+				  </div>
+        </div>
+
+<!--
+          <div class="w3-cell-row">
 					<div class=" w3-cell-middle">
 						<a href="/prompt2?tag1=+"> <button class="w3-btn w3-round-xlarge
                          w3-border w3-border-blue" >
@@ -97,6 +115,7 @@
 							</button></a>
 					</div>
 				</div>
+-->
 
 
     </div><!-- END CONTENT -->
@@ -105,11 +124,32 @@
 </body><!-- END BODY -->
 
 <script>
+<<<<<<< HEAD
+
+  $('#tag1').hide();
+
+  function show() {
+    $('#tag1').show();
+    $('#plus').hide();
+  }
+
+  $(document).ready(function(){
+    $("#doLogin").click(function(){
+      var tag1 = $("#tag1").val();
+      console.log(tag1);
+      if (tag1 === "") {
+        alert("Must enter a tag");
+      }
+      localStorage.setItem("tag1", tag1);
+    });
+  });
+=======
     $(document).ready(function () {
         $("div[data-includeHTML]").each(function () {
             $(this).load($(this).attr("data-includeHTML"));
         });
     });
+>>>>>>> e13e0b60b2457d1fa0aa1c94085b9fd8b1fc8b4b
 </script>
 
 <script>

@@ -41,6 +41,16 @@
   padding: 20px 0 30px 0;
 }
 
+<<<<<<< HEAD
+/* removes underlines and blue color for new entry text */
+.w3-btn:hover {
+  color: black;
+  text-decoration: none;
+  text-decoration-color: none;
+}
+
+=======
+>>>>>>> fd61ba3a6ead47e3bf9b7ac204534ca08d137513
 /* style inputs and link buttons */
 input,
 .btn {

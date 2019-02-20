@@ -78,7 +78,7 @@
 					</div>
 				</div>
 
-                 <div class="w3-cell-row">
+        <div class="w3-cell-row">
 					<div class=" w3-cell-middle">
 						<a href="/newentry?tag2=friends" class="tag"><button id='friends' class="w3-btn w3-round-xlarge
                          w3-border w3-border-blue tag" >
@@ -87,15 +87,20 @@
 					</div>
 				</div>
 
-                 <div class="w3-cell-row">
-					<div class=" w3-cell-middle">
-						<a href="/newentry?tag2=+" class="tag"> <button class="w3-btn w3-round-xlarge
-                         w3-border w3-border-blue tag">
-								<h8> + </h8>
-							</button></a>
-					</div>
-				</div>
-            </div>
+        <div class="w3-cell-row">
+					<div class=" w3-cell-middle">            
+            <button class="w3-btn w3-round-xlarge w3-border w3-border-blue" 
+                    onclick='show()' >
+              <h8 id="plus"> + </h8>
+
+              <form id="form1" class="tag" method="GET">
+              <input type="text" id="tag2" name="tag2" placeholder="Enter Tag..." required>
+              <input onsubmit="entryPage(this);" id= "submit" type="submit">
+              </form>
+              </a>
+            </button>
+				  </div>
+        </div>
 
   </div>  <!-- END CONTENT -->
 
@@ -111,9 +116,31 @@
 </script>
 
 <script>
+   
+  $('#tag2').hide();
+  $('#submit').hide();
+
+
+  function show() {
+    $('#tag2').show();
+    $('#plus').hide();
+    $('#submit').show();
+  }
+
+  $(document).ready(function(){
+    $("#doLogin").click(function(){
+      var tag2 = $("#tag2").val();
+      if (tag2 === "") {
+        alert("Must enter a tag");
+      }
+      localStorage.setItem("tag2", tag2);
+    });
+  });
+
 		function goBack() {
 		window.history.back();
-}
+    }
+   
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, '\\$&');
@@ -122,9 +149,16 @@
         if (!results) return null;
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
+    }
+
+    function entryPage(my_form)
+    {
+      var tag2 = getParameterByName('tag2')
+      window.location.href = "/newentry?tag2=" + tag2 + '&tag1=' + getParameterByName('tag1')
+    }
+
     // each <a> element
-   // class="... tag"
+    // class="... tag"
     // prompt2.js
     var tag1 = getParameterByName('tag1')
     var tags = document.querySelectorAll('.tag')
@@ -132,6 +166,6 @@
     for(var i = 0; i < tags.length; i++) {
         tags[i].setAttribute('href', tags[i].getAttribute('href') + '&tag1=' + tag1)
     }
-    console.log(tags)
+
 </script>
 </html>
