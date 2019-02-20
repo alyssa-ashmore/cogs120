@@ -26,7 +26,7 @@ exports.newentry = function(req, res){
 };
 
 exports.tagspage = function(req, res){
-	res.render('TagsPage');
+	res.render('TagsPage', entry);
 };
 
 exports.tagentries = function(req, res){

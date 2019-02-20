@@ -35,23 +35,22 @@
 
     <!-- CONTENT-->
 			<div class="w3-container w3-white">
-
+        {{#each entry}}
 				<div class="w3-cell-row">
               <div class="w3-cell-middle">
 						<a href="/tagentries"> <button class="w3-btn w3-block ">
-								<h3>happy</h3>
+								<h3>{{tag1}}</h3>
 							</button></a>
 					</div></div>
-
-				</div>
 
         <div class="w3-cell-row">
 					<div class=" w3-cell-middle">
 						<a href="/tagentries"> <button class="w3-btn w3-block">
-								<h3>sad</h3>
+								<h3>{{tag2}}</h3>
 							</button></a>
 					</div>
 				</div>
+        {{/each}}
 			</div>
 
 
