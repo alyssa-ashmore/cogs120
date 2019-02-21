@@ -17,7 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <title></title>
-  
+
 </head>
 
 <style>
@@ -89,11 +89,11 @@
 					</div>
 				</div>
 
-        
-        <div class="w3-cell-row">
-					<div class=" w3-cell-middle">            
 
-            <button class="w3-btn w3-round-xlarge w3-border w3-border-blue" 
+        <div class="w3-cell-row">
+					<div class=" w3-cell-middle">
+
+            <button class="w3-btn w3-round-xlarge w3-border w3-border-blue"
                     onclick='show()' >
               <h8 id="plus"> + </h8>
 
@@ -144,6 +144,7 @@
       localStorage.setItem("tag1", tag1);
     });
   });
+
     $(document).ready(function () {
         $("div[data-includeHTML]").each(function () {
             $(this).load($(this).attr("data-includeHTML"));
