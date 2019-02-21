@@ -23,15 +23,10 @@
   <!-- w3-content defines a container for fixed size centered content,
   and is wrapped around the whole page content-->
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
-
-
-
-    <!-- Header -->
+  
+  <!-- Header -->
    <div data-includeHTML="header.html"></div>
-
-     <!-- Header -->
-
-
+  <!-- Header -->
 
     <!-- CONTENT-->
 			<div class="w3-container w3-white">
@@ -64,6 +59,24 @@
             $(this).load($(this).attr("data-includeHTML"));
         });
     });
+
+    var localEntry = JSON.parse(localStorage.getItem("entry"));
+
+    var tagsArray = [];
+    for(var i =0; i < localEntry.length; i++)
+    {
+      var obj = localEntry[i];
+      if(!(tagsArray.includes(obj.tag1)))
+      {
+        tagsArray.push(obj.tag1);
+      }
+      else
+      if(!(tagsArray.includes(obj.tag2)))
+      {
+        tagsArray.push(obj.tag2);
+      }
+    }
+
 </script>
 <script>
 		function goBack() {

@@ -34,19 +34,19 @@
 
     <!-- CONTENT-->
 <div class="w3-container">
-  <p class="title w3-margin">Entries tagged "Tag"</p>
+  <p class="title w3-margin">Entries tagged ___ </p>
 </div>
 			<div class="w3-card-4 w3-margin w3-white">
 
 				<div class="w3-cell-row">
 					<div class="col-xs-10">
-						<span class="w3-tag">tag1</span>
-				<span class="w3-tag">tag2</span>
-					</div>
+						<span class="w3-tag" id="tag1"></span>
+				<span class="w3-tag" id="tag2"></span>
+				</div>
 					<div class=" w3-cell-middle">
 
 						<a href="/entrycontent"> <button class="w3-btn w3-block w3-padding-16 ">
-								<h1>date</h1>
+								<h1 id="date"> </h1>
 							</button></a>
 
 					</div>
@@ -64,6 +64,15 @@
             $(this).load($(this).attr("data-includeHTML"));
         });
     });
+
+    var localEntry = JSON.parse(localStorage.getItem("entry"));
+    var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
+    if (lastItem) {
+      $("#date").text(lastItem.date);
+      $("#content").text(lastItem.content);
+      $("#tag1").text(lastItem.tag1);
+      $("#tag2").text(lastItem.tag2);
+    }
 </script>
 
 <script>
