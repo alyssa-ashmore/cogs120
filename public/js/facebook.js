@@ -1,6 +1,7 @@
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
+      
   });
 }
 
@@ -15,5 +16,9 @@ function statusChangeCallback(response) {
     // Logged into your app and Facebook.
         console.log('Successfully logged in with Facebook');
          FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);
+         var userName = $("#first_name").val();
+         console.log(userName);
+                  localStorage.setItem("username", userName);
+
   }
 }
