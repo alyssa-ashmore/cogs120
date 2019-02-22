@@ -24,10 +24,8 @@ function statusChangeCallback(response) {
     });
 
   }
-} else {
-console.log('User cancelled login or did not fully authorize.');
 }
-}
+
 
 
 //         var userName = $("#first_name").val();

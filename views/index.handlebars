@@ -33,7 +33,7 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
-     FB.getLoginStatus(checkLoginStatus);
+
 
      FB.login(function(response) {
          if (response.authResponse) {
@@ -48,10 +48,10 @@
          } else {
           console.log('User cancelled login or did not fully authorize.');
          }
-     });
+});
 
 
-
+     FB.getLoginStatus(checkLoginStatus);
   </script>
 
   <script src="../js/proj.js"></script>
