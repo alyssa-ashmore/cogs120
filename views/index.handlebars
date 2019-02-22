@@ -33,6 +33,8 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
+     FB.getLoginStatus(checkLoginStatus);
+
      FB.login(function(response) {
          if (response.authResponse) {
           console.log('Welcome!  Fetching your information.... ');

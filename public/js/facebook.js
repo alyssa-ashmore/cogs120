@@ -14,13 +14,22 @@ function statusChangeCallback(response) {
   // for FB.getLoginStatus().
   if (response.status === 'connected') {
     // Logged into your app and Facebook.
-        console.log('Successfully logged in with Facebook');
-         FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);
+    console.log('Successfully logged in with Facebook');
+    FB.api('/me', function(response) {
+      console.log('Good to see you, ' + response.name + '.');
+      var userName = response.name;
+      console.log(userName);
+      localStorage.setItem("userName", userName);
+      window.location.href = "/homepage";
+    });
 
   }
+} else {
+console.log('User cancelled login or did not fully authorize.');
+}
 }
 
 
 //         var userName = $("#first_name").val();
-        // console.log(userName);
-          //        localStorage.setItem("username", userName);
+// console.log(userName);
+//        localStorage.setItem("username", userName);
