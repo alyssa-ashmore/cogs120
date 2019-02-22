@@ -135,7 +135,26 @@
     });
   });
 
+<<<<<<< HEAD
+    var localEntry = JSON.parse(localStorage.getItem("entry"));
+
+    var tagsArray = [];
+    for(var i =0; i < localEntry.length; i++)
+    {
+      var obj = localEntry[i];
+      if(!(tagsArray.includes(obj.tag1)))
+      {
+        tagsArray.push(obj.tag1);
+      }
+
+      if(!(tagsArray.includes(obj.tag2)))
+      {
+        tagsArray.push(obj.tag2);
+      }
+    }
+=======
   var localEntry = JSON.parse(localStorage.getItem("entry"));
+>>>>>>> f68bef23ed31580939dbfdaf9f2a1eb9153cd6aa
 
   var tagsArray = [];
   for (var i = 0; i < localEntry.length; i++) {
