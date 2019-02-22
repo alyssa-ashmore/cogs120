@@ -115,7 +115,7 @@
         <div class=" w3-cell-middle">
           <div class="w3-cell-middle">
             <a href="/entrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block w3-padding">
-                <h3 id="date"></h3>
+                <h3 id="lsdate"></h3>
               </button></a>
           </div>
         </div>
@@ -163,7 +163,7 @@
   var localEntry = JSON.parse(localStorage.getItem("entry"));
   var lastItem = localEntry && localEntry.length > 0 ? localEntry[localEntry.length - 1] : null;
   if (lastItem) {
-    $("#date").text(lastItem.date);
+    $("#lsdate").text(lastItem.date);
     $("#tag1").text(lastItem.tag1);
     $("#tag2").text(lastItem.tag2);
   }

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styling.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -106,7 +106,7 @@
 
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
-          <p class="title" id="date"></p>
+          <p class="title" id="lsdate"></p>
           <p id="content"></p>
 
         </div>
@@ -152,7 +152,7 @@
   var localEntry = JSON.parse(localStorage.getItem("entry"));
   var lastItem = localEntry && localEntry.length > 0 ? localEntry[localEntry.length - 1] : null;
   if (lastItem) {
-    $("#date").text(lastItem.date);
+    $("#lsdate").text(lastItem.date);
     $("#content").text(lastItem.content);
     $("#tag1").text(lastItem.tag1);
     $("#tag2").text(lastItem.tag2);
