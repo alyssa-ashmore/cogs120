@@ -266,6 +266,8 @@ and is wrapped around the whole page content,-->
 </script>
 
 <script>
+  var unsaved = false;
+
   //PROJ.JS
   function goBack() {
     window.history.back();
@@ -326,6 +328,8 @@ and is wrapped around the whole page content,-->
     entryArr.push(entryItem);
     localStorage.setItem("entry", JSON.stringify(entryArr));
     // fs.writeFile("entry.json", JSON.stringify(entryArr));
+
+    unsaved = false;//now saved
   }
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
@@ -337,6 +341,23 @@ and is wrapped around the whole page content,-->
       modal.style.display = "none";
     }
   }
+
+  ////unsaved Function////////////////////////////////////////////////////////
+
+
+$("#textArea").change(function(){ //triggers change in all input fields including text type
+    unsaved = true;
+});
+
+function unloadPage(){
+    if(unsaved){
+        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+    }
+}
+
+$('#save').click(function() {
+    unsaved = false;
+});
 </script>
 
 
