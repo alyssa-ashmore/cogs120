@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
   <link rel="stylesheet" href="css/styling.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -27,18 +25,20 @@
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
 
     <!-- Header -- <div data-includeHTML="header.html"></div>-->
+
     <header class="w3-panel w3-center w3-padding-16">
       <div class="w3-padding-small">
         <div class="w3-bar w3-border">
-          <img src="back.png" onclick="goBack()" class="navicon w3-bar-item w3-button "></a>
+          <img src="back.png" onclick="goBack()" class="navicon w3-bar-item w3-button "><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
           <a href="/homepage"> <img src="home.svg" class="navicon w3-bar-item w3-button "></img></a>
-          <img src="instruction.png" onclick="document.getElementById('faq').style.display='block'" class="navicon w3-bar-item w3-button"></img>
+          <img src="instruction.png" onclick="document.getElementById('id01').style.display='block'" class="navicon w3-bar-item w3-button"></img>
 
           <div id="faq" class="w3-modal">
             <div class="w3-modal-content">
               <div class="w3-container">
                 <span onclick="document.getElementById('faq').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                <!-- GUIDE content-->
+
+                <!-- GUIDE MODAL-->
                 <H2 class="w3-center">User Guide</H2>
 
                 <div class=" w3-content w3-panel">
@@ -66,6 +66,8 @@
                         3. Click on first tag at the top to see all entries associated with that tag <br>
                         4. Click on back button or home screen button <br>
 
+
+
                       </p>
                     </div>
 
@@ -92,18 +94,20 @@
 
                   </div>
                 </div><!-- GUIDE CONTENT end-->
-
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
-    </header><!--HEADER end-->
+    </header>
 
-
+    <!-- Header -->
+    <div id="topDiv"></div>
     <!-- CONTENT-->
-    <div class="w3-container w3-white">
+
+   <!--  <div class="w3-container w3-white">
       {{#each entry}}
         <div class="w3-cell-row">
           <div class="w3-cell-middle">
@@ -114,14 +118,13 @@
         </div>
 
         <div class="w3-cell-row">
-          <div class=" w3-cell-middle">
             <a href="/tagentries"> <button class="w3-btn w3-block">
                 <h3>{{tag2}}</h3>
               </button></a>
           </div>
         </div>
       {{/each}}
-    </div>
+    </div>-->
 
 
   </div> <!-- END CONTENT -->
@@ -135,37 +138,62 @@
     });
   });
 
-<<<<<<< HEAD
     var localEntry = JSON.parse(localStorage.getItem("entry"));
 
-    var tagsArray = [];
+    var tagsArray = {};
     for(var i =0; i < localEntry.length; i++)
     {
       var obj = localEntry[i];
-      if(!(tagsArray.includes(obj.tag1)))
-      {
-        tagsArray.push(obj.tag1);
+      var tag1String = obj.tag1;
+      var tag2String = obj.tag2;
+
+      if( [tag1String] in tagsArray ) {
+        tagsArray[tag1String].push(obj);
+      }  else {
+        tagsArray[tag1String] = [obj];
       }
 
-      if(!(tagsArray.includes(obj.tag2)))
-      {
-        tagsArray.push(obj.tag2);
+      if( [tag2String] in tagsArray ) {
+        tagsArray[tag2String].push(obj);
+      }  else {
+        tagsArray[tag2String] = [obj];
       }
     }
-=======
-  var localEntry = JSON.parse(localStorage.getItem("entry"));
->>>>>>> f68bef23ed31580939dbfdaf9f2a1eb9153cd6aa
 
-  var tagsArray = [];
-  for (var i = 0; i < localEntry.length; i++) {
-    var obj = localEntry[i];
-    if (!(tagsArray.includes(obj.tag1))) {
-      tagsArray.push(obj.tag1);
-    } else
-    if (!(tagsArray.includes(obj.tag2))) {
-      tagsArray.push(obj.tag2);
+    localStorage.setItem("tagsArray", JSON.stringify(tagsArray));
+
+
+    for( var key in tagsArray )
+    {
+      var div1 = document.createElement("div");
+      div1.setAttribute("class","w3-container w3-white");
+      
+      var div2 = document.createElement("div");
+      div2.setAttribute("class","w3-cell-row");
+      
+      var div3 = document.createElement("div");
+      div3.setAttribute("class","w3-cell-middle");
+      
+      var tagName = document.createElement("button");
+      tagName.setAttribute("class","w3-btn w3-block");
+      
+      var h3 = document.createElement("h3");
+      var text = document.createTextNode([key]);
+
+      var a = document.createElement("a");
+      a.setAttribute("href", "/tagentries?tag=" + [key] )
+      
+      h3.appendChild(text);
+      div1.appendChild(div2);
+      div2.appendChild(div3);
+      div3.appendChild(a);
+      a.appendChild(tagName);
+      tagName.appendChild(h3);
+      
+      var topDiv = document.getElementById("topDiv");
+      topDiv.appendChild(div1);
     }
-  }
+
 </script>
 <script>
   function goBack() {
