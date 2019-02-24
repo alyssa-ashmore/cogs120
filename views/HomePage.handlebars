@@ -21,10 +21,10 @@
 
 <body class="w3-light-grey w3-padding-16">
 
-  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+  <div class=" w3-content w3-white  w3-center" style="max-width:800px; max-height:800px margin: auto">
 
     <!-- help bar -->
-    <header class="w3-panel w3-center w3-padding-small">
+    <header class="w3-center" style="padding-top: 8px";>
       <div class="w3-bar w3-border">
         <img src="instruction.png" onclick="document.getElementById('faq').style.display='block'" class="navicon w3-bar-item w3-button"></img>
 
@@ -85,21 +85,25 @@
                     </p>
                   </div>
 
+
                 </div>
               </div><!-- GUIDE CONTENT end-->
             </div>
           </div>
         </div>
       </div>
-    </header>
-
-    <div class="w3-card-4 w3-center w3-margin w3-white w3-padding-36">
+    </header><!--HEADER END-->
+<div class="w3-padding-32">
+    <div class="w3-card-4 w3-center w3-white w3-padding-16 " style="  max-width: 500px;
+  margin: auto;">
+      <div class= "w3-row">
+        <p>Welcome back </p> <p id="user"></p>
       <div class="w3-cell-row w3-center">
-        <div class=" w3-cell-middle w3-margin">
+        <div class=" w3-cell-middle">
 
           <a href="/prompt1">
             <button class="w3-btn w3-hover-teal">
-              <h1><i class="fas fa-edit fa-5x"></i><br>New Entry</h1>
+              <h2><i class="fas fa-edit fa-5x"></i><br>New Entry</h2>
             </button></a>
 
         </div>
@@ -108,7 +112,7 @@
 
     <div class=" w3-white w3-panel w3-center ">
       <div class="w3-cell-row">
-        <div class=" w3-cell-middle w3-margin w3-padding-32">
+        <div class=" w3-cell-middle w3-margin">
           <div class="w3-bar">
             <a href="/pastentries"> <button class="w3-button w3-black"> Entries</button></a>
             <a href="/profile"> <button class="w3-button w3-teal">Profile</button></a>
@@ -119,7 +123,15 @@
     </div>
 
   </div>
+</div>
 
 </body>
+
+<script>
+// show user userName
+var loginUserName = localStorage.getItem("userName");
+$("#user").text(loginUserName);
+</script>
+
 
 </html>
