@@ -104,27 +104,28 @@
 
         </header><!--HEADER end-->
 
-
     <!-- CONTENT-->
 <div class="w3-container">
-  <p class="title w3-margin">Entries tagged ___ </p>
+  <p class="title w3-margin">Entries tagged 
+    <span id="replaceTag"></span>
+  </p>
 </div>
-			<div class="w3-card-4 w3-margin w3-white">
-
-				<div class="w3-cell-row">
-					<div class="col-xs-10">
-						<span class="w3-tag" id="tag1"></span>
-				<span class="w3-tag" id="tag2"></span>
-				</div>
-					<div class=" w3-cell-middle">
-
-						<a href="/entrycontent"> <button class="w3-btn w3-block w3-padding-16 ">
-								<h1 id="date"> </h1>
-							</button></a>
-
-					</div>
-				</div>
-			</div>
+<div id="topDiv"></div>
+<!--
+    <div class="w3-card-4 w3-white w3-margin pastentry">
+      <div class="w3-cell-row">
+        <div class="col-xs-10">
+          <span class="w3-tag" id="tag1"></span>
+          <span class="w3-tag" id="tag2"></span>
+        </div>
+        <div class=" w3-cell-middle">
+          <div class="w3-cell-middle">
+            <a href="/entrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block w3-padding">
+                <h3 id="lsdate"></h3>
+              </button></a>
+          </div>
+        </div>
+      </div>-->
 
   </div>  <!-- END CONTENT -->
 
@@ -132,13 +133,92 @@
 </body><!-- END BODY -->
 
 <script>
+
+    // use partials ??
+    function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var tag = getParameterByName('tag');
+    document.getElementById("replaceTag").innerHTML = tag;
+
+    var tagsArray = JSON.parse(localStorage.getItem("tagsArray"));
+   
+    for( var key in tagsArray[tag] )
+    {
+      console.log("hello");
+      var div1 = document.createElement("div");
+      div1.setAttribute("class","w3-card w3-white w3-margin pastentry");
+    
+      var div2 = document.createElement("div");
+      div2.setAttribute("class","w3-cell-row");
+
+      var div3 = document.createElement("div");
+      div3.setAttribute("class","col-xs-10");
+
+      var span1 = document.createElement("span");
+      span1.setAttribute("class", "w3-tag");
+      var span2 = document.createElement("span");
+      span2.setAttribute("class", "w3-tag");
+      var span1text = document.createTextNode(tagsArray[tag][key].tag1);
+      var span2text = document.createTextNode(tagsArray[tag][key].tag2);
+
+      var div5 = document.createElement("div");
+      div5.setAttribute("class","w3-cell-middle");
+
+      var div6 = document.createElement("div");
+      div6.setAttribute("class","w3-cell-middle w3-center");
+
+      var h2 = document.createElement("h2");
+      var content = document.createTextNode(tagsArray[tag][key].content);
+      h2.appendChild(content);
+      
+      var h3 = document.createElement("h4");
+      var datetext = document.createTextNode(tagsArray[tag][key].date);
+      h3.appendChild(datetext);
+      h3.setAttribute("class", "w3-block w3-right-align");
+      
+      div1.appendChild(div2);
+      div2.appendChild(div3);
+      div3.appendChild(span1);
+      div3.appendChild(span2);
+      div3.appendChild(h3);
+      div2.appendChild(div5);
+      div5.appendChild(div6);
+      div6.appendChild(h2);
+      span1.appendChild(span1text);
+      span2.appendChild(span2text);
+
+      var topDiv = document.getElementById("topDiv");
+      topDiv.appendChild(div1);
+
+    }
+    
     $(document).ready(function () {
         $("div[data-includeHTML]").each(function () {
             $(this).load($(this).attr("data-includeHTML"));
         });
     });
 
-    var localEntry = JSON.parse(localStorage.getItem("entry"));
+    var tagsArray = JSON.parse(localStorage.getItem("tagsArray"));
+    for( i = 0; i < tagsArray[tag].length; i++ )
+    {
+
+    }
+    
+    var topDiv = document.getElementById("topDiv");
+   
+
+   
+  
+  
+  /*  var localEntry = JSON.parse(localStorage.getItem("entry"));
     var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
     if (lastItem) {
       $("#date").text(lastItem.date);
@@ -146,6 +226,7 @@
       $("#tag1").text(lastItem.tag1);
       $("#tag2").text(lastItem.tag2);
     }
+    */
 </script>
 
 <script>

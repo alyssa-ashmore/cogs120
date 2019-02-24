@@ -104,9 +104,10 @@
     </header>
 
     <!-- Header -->
-
+    <div id="topDiv"></div>
     <!-- CONTENT-->
-    <div class="w3-container w3-white">
+
+   <!--  <div class="w3-container w3-white">
       {{#each entry}}
         <div class="w3-cell-row">
           <div class="w3-cell-middle">
@@ -117,14 +118,13 @@
         </div>
 
         <div class="w3-cell-row">
-          <div class=" w3-cell-middle">
             <a href="/tagentries"> <button class="w3-btn w3-block">
                 <h3>{{tag2}}</h3>
               </button></a>
           </div>
         </div>
       {{/each}}
-    </div>
+    </div>-->
 
 
   </div> <!-- END CONTENT -->
@@ -141,14 +141,58 @@
     var localEntry = JSON.parse(localStorage.getItem("entry"));
 
     var tagsArray = {};
-    //var tagCounts = [];
     for(var i =0; i < localEntry.length; i++)
     {
       var obj = localEntry[i];
-      tagsArray = {obj.tag1: obj};
-      tagsArray = {obj.tag2: obj};
+      var tag1String = obj.tag1;
+      var tag2String = obj.tag2;
+
+      if( [tag1String] in tagsArray ) {
+        tagsArray[tag1String].push(obj);
+      }  else {
+        tagsArray[tag1String] = [obj];
+      }
+
+      if( [tag2String] in tagsArray ) {
+        tagsArray[tag2String].push(obj);
+      }  else {
+        tagsArray[tag2String] = [obj];
+      }
     }
-  var localEntry = JSON.parse(localStorage.getItem("entry"));
+
+    localStorage.setItem("tagsArray", JSON.stringify(tagsArray));
+
+
+    for( var key in tagsArray )
+    {
+      var div1 = document.createElement("div");
+      div1.setAttribute("class","w3-container w3-white");
+      
+      var div2 = document.createElement("div");
+      div2.setAttribute("class","w3-cell-row");
+      
+      var div3 = document.createElement("div");
+      div3.setAttribute("class","w3-cell-middle");
+      
+      var tagName = document.createElement("button");
+      tagName.setAttribute("class","w3-btn w3-block");
+      
+      var h3 = document.createElement("h3");
+      var text = document.createTextNode([key]);
+
+      var a = document.createElement("a");
+      a.setAttribute("href", "/tagentries?tag=" + [key] )
+      
+      h3.appendChild(text);
+      div1.appendChild(div2);
+      div2.appendChild(div3);
+      div3.appendChild(a);
+      a.appendChild(tagName);
+      tagName.appendChild(h3);
+      
+      var topDiv = document.getElementById("topDiv");
+      topDiv.appendChild(div1);
+    }
 
 </script>
 <script>
