@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
   <link rel="stylesheet" href="css/styling.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -27,18 +25,20 @@
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
 
     <!-- Header -- <div data-includeHTML="header.html"></div>-->
+
     <header class="w3-panel w3-center w3-padding-16">
       <div class="w3-padding-small">
         <div class="w3-bar w3-border">
-          <img src="back.png" onclick="goBack()" class="navicon w3-bar-item w3-button "></a>
+          <img src="back.png" onclick="goBack()" class="navicon w3-bar-item w3-button "><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
           <a href="/homepage"> <img src="home.svg" class="navicon w3-bar-item w3-button "></img></a>
-          <img src="instruction.png" onclick="document.getElementById('faq').style.display='block'" class="navicon w3-bar-item w3-button"></img>
+          <img src="instruction.png" onclick="document.getElementById('id01').style.display='block'" class="navicon w3-bar-item w3-button"></img>
 
           <div id="faq" class="w3-modal">
             <div class="w3-modal-content">
               <div class="w3-container">
                 <span onclick="document.getElementById('faq').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                <!-- GUIDE content-->
+
+                <!-- GUIDE MODAL-->
                 <H2 class="w3-center">User Guide</H2>
 
                 <div class=" w3-content w3-panel">
@@ -66,6 +66,8 @@
                         3. Click on first tag at the top to see all entries associated with that tag <br>
                         4. Click on back button or home screen button <br>
 
+
+
                       </p>
                     </div>
 
@@ -92,15 +94,16 @@
 
                   </div>
                 </div><!-- GUIDE CONTENT end-->
-
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
-    </header><!--HEADER end-->
+    </header>
 
+    <!-- Header -->
 
     <!-- CONTENT-->
     <div class="w3-container w3-white">
@@ -134,20 +137,19 @@
       $(this).load($(this).attr("data-includeHTML"));
     });
   });
- 
+
+    var localEntry = JSON.parse(localStorage.getItem("entry"));
+
+    var tagsArray = {};
+    //var tagCounts = [];
+    for(var i =0; i < localEntry.length; i++)
+    {
+      var obj = localEntry[i];
+      tagsArray = {obj.tag1: obj};
+      tagsArray = {obj.tag2: obj};
+    }
   var localEntry = JSON.parse(localStorage.getItem("entry"));
 
-  var tagsArray = [];
-  for (var i = 0; i < localEntry.length; i++) {
-    var obj = localEntry[i];
-
-    tagsArray[obj.tag1] = [];
-    console.log("hll=" + typeof tagsArray[obj.tag1]);
-    tagsArray[obj.tag2] = [];
-    tagsArray[obj.tag2].push(obj);
-  }
-
-  console.log(tagsArray['happy'][0].tag1);
 </script>
 <script>
   function goBack() {
