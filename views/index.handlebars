@@ -33,18 +33,25 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
+
+
      FB.login(function(response) {
-    if (response.authResponse) {
-     console.log('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       console.log('Good to see you, ' + response.name + '.');
-     });
-    } else {
-     console.log('User cancelled login or did not fully authorize.');
-    }
+         if (response.authResponse) {
+          console.log('Welcome!  Fetching your information.... ');
+          FB.api('/me', function(response) {
+            console.log('Good to see you, ' + response.name + '.');
+            var userName = response.name;
+            console.log(userName);
+            localStorage.setItem("userName", userName);
+            window.location.href = "/homepage";
+          });
+         } else {
+          console.log('User cancelled login or did not fully authorize.');
+         }
 });
 
 
+     FB.getLoginStatus(checkLoginStatus);
   </script>
 
   <script src="../js/proj.js"></script>
@@ -98,7 +105,7 @@ and is wrapped around the whole page content,-->
               </div>-->
 
               <div class="col w3-content w3-center">
-                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" action="/homepage#faq" >
                 </fb:login-button>
               </div>
 

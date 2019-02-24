@@ -243,22 +243,22 @@ pauseBtn.addEventListener('click',pauseTimer);
     }
 
 
-  ////unsaved Function////////////////////////////////////////////////////////
-  var unsaved = false;
 
-$(":input").change(function(){ //triggers change in all input fields including text type
-    unsaved = true;
-});
 
-function unloadPage(){
-    if(unsaved){
-        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
-    }
-}
+/**
+ * Function to open a bootstrap modal based on ID
+ * @param int
+ */
+function directLinkModal(hash) {
+  $(hash).modal('show');
+};
 
-$('#save').click(function() {
-    unsaved = false;
-});
+/**
+ * Call the function on window load
+ * @param hash of the window
+ */
+directLinkModal(window.location.hash);
+
 
 
   window.onbeforeunload = unloadPage;
