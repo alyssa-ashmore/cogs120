@@ -171,8 +171,8 @@
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
   }
 
-  var entry = getParameterByName('key');
-  console.log(entry);
+  var entrynumber = getParameterByName('key');
+  console.log(entrynumber);
 
     var div1 = document.createElement("div");
     div1.setAttribute("class","w3-card w3-white w3-margin");
@@ -187,8 +187,8 @@
     span1.setAttribute("class", "w3-tag");
     var span2 = document.createElement("span");
     span2.setAttribute("class", "w3-tag");
-    var span1text = document.createTextNode(localEntry[entry].tag1);
-    var span2text = document.createTextNode(localEntry[entry].tag2);
+    var span1text = document.createTextNode(localEntry[entrynumber].tag1);
+    var span2text = document.createTextNode(localEntry[entrynumber].tag2);
 
     var div5 = document.createElement("div");
     div5.setAttribute("class","w3-cell-middle");
@@ -197,11 +197,11 @@
     div6.setAttribute("class","w3-cell-middle w3-center");
 
     var h2 = document.createElement("h2");
-    var content = document.createTextNode(localEntry[entry].content);
+    var content = document.createTextNode(localEntry[entrynumber].content);
     h2.appendChild(content);
 
     var h3 = document.createElement("h4");
-    var datetext = document.createTextNode(localEntry[entry].date);
+    var datetext = document.createTextNode(localEntry[entrynumber].date);
     h3.appendChild(datetext);
     h3.setAttribute("class", "w3-block w3-right-align");
 
@@ -221,7 +221,12 @@
 
 
     deleteBtn.onclick = function() {
-      localStorage.removeItem("entry");
+      entryArray = JSON.parse(localStorage.entry);
+      console.log(entryArray);
+      entryArray = entryArray ? entryArray : [];
+      entryArray.splice(entrynumber, 1);
+      console.log(entryArray);
+      localStorage.setItem('entry', JSON.stringify(entryArray));
     }
 
 </script>
