@@ -157,8 +157,15 @@
   var loginUserName = localStorage.getItem("userName");
   $("#user").text(loginUserName);
 
-  var numofentries = JSON.parse(localStorage.entry).length + 3;
+  var numofentries = 0;
+  if ( JSON.parse(localStorage.entry).length == null) {
+    numofentries = 4;
+  } else {
+    numofentries = length + 4;
+  }
+
   $("#numofentries").text(numofentries);
+
 </script>
 
 

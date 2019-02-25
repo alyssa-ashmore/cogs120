@@ -106,7 +106,7 @@
 
     <!-- CONTENT-->
 <div class="w3-container">
-  <p class="title w3-margin">Entries tagged 
+  <p class="title w3-margin">Entries tagged
     <span id="replaceTag"></span>
   </p>
 </div>
@@ -149,13 +149,13 @@
     document.getElementById("replaceTag").innerHTML = tag;
 
     var tagsArray = JSON.parse(localStorage.getItem("tagsArray"));
-   
+
     for( var key in tagsArray[tag] )
     {
       console.log("hello");
       var div1 = document.createElement("div");
-      div1.setAttribute("class","w3-card w3-white w3-margin pastentry");
-    
+      div1.setAttribute("class","w3-card w3-white w3-margin");
+
       var div2 = document.createElement("div");
       div2.setAttribute("class","w3-cell-row");
 
@@ -178,12 +178,12 @@
       var h2 = document.createElement("h2");
       var content = document.createTextNode(tagsArray[tag][key].content);
       h2.appendChild(content);
-      
+
       var h3 = document.createElement("h4");
       var datetext = document.createTextNode(tagsArray[tag][key].date);
       h3.appendChild(datetext);
       h3.setAttribute("class", "w3-block w3-right-align");
-      
+
       div1.appendChild(div2);
       div2.appendChild(div3);
       div3.appendChild(span1);
@@ -199,7 +199,7 @@
       topDiv.appendChild(div1);
 
     }
-    
+
     $(document).ready(function () {
         $("div[data-includeHTML]").each(function () {
             $(this).load($(this).attr("data-includeHTML"));
@@ -211,13 +211,13 @@
     {
 
     }
-    
-    var topDiv = document.getElementById("topDiv");
-   
 
-   
-  
-  
+    var topDiv = document.getElementById("topDiv");
+
+
+
+
+
   /*  var localEntry = JSON.parse(localStorage.getItem("entry"));
     var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
     if (lastItem) {

@@ -27,7 +27,7 @@
   <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
 
 
-        <!-- Header -- <div data-includeHTML="header.html"></div>-->
+        <!-- Header-->
         <header class="w3-panel w3-center w3-padding-16">
           <div class="w3-padding-small">
             <div class="w3-bar w3-border">
@@ -107,7 +107,8 @@
       <p class="title w3-margin"> Past Entries</p>
     </div>
     <div class="w3-card-4 w3-white w3-margin pastentry">
-      <div class="w3-cell-row">
+      <div id="topDiv"></div>
+      <!-- <div class="w3-cell-row">
         <div class="col-xs-10">
           <span class="w3-tag" id="tag1"></span>
           <span class="w3-tag" id="tag2"></span>
@@ -119,7 +120,7 @@
               </button></a>
           </div>
         </div>
-      </div>
+      </div> -->
       {{#each entry}}
         <div class="w3-cell-row">
           <div class="col-xs-10">
@@ -152,34 +153,65 @@
       $(this).load($(this).attr("data-includeHTML"));
     });
   });
-</script>
 
-
-<script>
   function goBack() {
     window.history.back();
   }
 
   var localEntry = JSON.parse(localStorage.getItem("entry"));
-  var lastItem = localEntry && localEntry.length > 0 ? localEntry[localEntry.length - 1] : null;
-  if (lastItem) {
-    $("#lsdate").text(lastItem.date);
-    $("#tag1").text(lastItem.tag1);
-    $("#tag2").text(lastItem.tag2);
+  // var lastItem = localEntry && localEntry.length > 0 ? localEntry[localEntry.length - 1] : null;
+  // if (lastItem) {
+  //   $("#lsdate").text(lastItem.date);
+  //   $("#tag1").text(lastItem.tag1);
+  //   $("#tag2").text(lastItem.tag2);
+  // }
+  for( var key in localEntry )
+  {
+    var div2 = document.createElement("div");
+    div2.setAttribute("class","w3-cell-row");
+
+    var div3 = document.createElement("div");
+    div3.setAttribute("class","col-xs-10");
+
+    var span1 = document.createElement("span");
+    span1.setAttribute("class", "w3-tag");
+    var span2 = document.createElement("span");
+    span2.setAttribute("class", "w3-tag");
+    var span1text = document.createTextNode(localEntry[key].tag1);
+    var span2text = document.createTextNode(localEntry[key].tag2);
+
+    var div4 = document.createElement("div");
+    div4.setAttribute("class","w3-cell-middle");
+
+    var div5 = document.createElement("div");
+    div5.setAttribute("class","w3-cell-middle");
+
+    var a = document.createElement("a");
+    a.setAttribute("href", "/entrycontent?key=" + [key])
+
+    var tagName = document.createElement("button");
+    tagName.setAttribute("class","w3-btn w3-block");
+
+    var h3 = document.createElement("h3");
+    var datetext = document.createTextNode(localEntry[key].date);
+
+    h3.appendChild(datetext);
+    div2.appendChild(div3);
+    div3.appendChild(span1);
+    div3.appendChild(span2);
+    div2.appendChild(div4);
+    div4.appendChild(div5);
+    div5.appendChild(a);
+    a.appendChild(tagName);
+    tagName.appendChild(h3);
+    span1.appendChild(span1text);
+    span2.appendChild(span2text);
+
+
+    var topDiv = document.getElementById("topDiv");
+    topDiv.appendChild(div2);
   }
 
-  //
-  // for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-  //   var key = localStorage.key(i);
-  //   var value = localStorage[key];
-  //   console.log(key + " => " + value);
-  //   if (key=="entry"){
-  //     var localEntry = JSON.parse(localStorage.getItem("entry"));
-  //     var item = localStorage.getItem(value) && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
-  //     $("#date").text(item.date);
-  //     $("#tag1").text(item.tag1);
-  //     $("#tag2").text(item.tag2);
-  //   }
 </script>
 
 </html>
