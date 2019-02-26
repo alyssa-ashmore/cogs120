@@ -8,6 +8,7 @@ var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
 
+
 var index = require('./routes/index');
 // var fs = require('fs');
 // console.log(fs);
@@ -21,7 +22,8 @@ var app = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', handlebars());
+app.engine('handlebars', handlebars( {
+ partialsDir: __dirname + '/views/partials/'}));
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -52,8 +54,6 @@ app.get('/entrycontent',index.viewentry);
 app.get('/oldentrycontent', index.viewold);
 app.get('/prompt1',index.prompt1);
 app.get('/prompt2',index.prompt2);
-
-
 
 
 
