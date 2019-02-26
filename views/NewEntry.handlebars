@@ -327,7 +327,7 @@ and is wrapped around the whole page content,-->
       tag2: getParameterByName('tag2'),
       content: entry
     };
-    entryArr.push(entryItem);
+    entryArr.unshift(entryItem);
     localStorage.setItem("entry", JSON.stringify(entryArr));
     // fs.writeFile("entry.json", JSON.stringify(entryArr));
 
