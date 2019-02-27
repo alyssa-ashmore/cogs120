@@ -103,7 +103,7 @@
   console.log(entrynumber);
 
     var div1 = document.createElement("div");
-    div1.setAttribute("class","w3-card w3-white w3-margin");
+    div1.setAttribute("class","w3-card w3-white w3-margin",  "style","overflow-y:scroll" );
 
     var div2 = document.createElement("div");
     div2.setAttribute("class","w3-cell-row");
@@ -124,10 +124,11 @@
     var div6 = document.createElement("div");
     div6.setAttribute("class","w3-cell-middle w3-center");
 
-    var h2 = document.createElement("h2");
+    var h2 = document.createElement("h6");
     var content = document.createTextNode(localEntry[entrynumber].content);
-    h2.setAttribute("style","overflow:scroll");
     h2.appendChild(content);
+    h2.setAttribute("style","width:500px; word-wrap: break-word; margin:auto;")
+
 
     var h3 = document.createElement("h4");
     var datetext = document.createTextNode(localEntry[entrynumber].date);
