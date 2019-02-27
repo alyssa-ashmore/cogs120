@@ -71,7 +71,7 @@
 <body class="w3-light-grey w3-padding-16">
 
   <div id="fb-root"></div>
-<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=235144894095418&autoLogAppEvents=1"></script>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=235144894095418&autoLogAppEvents=1"></script>
   <!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content,-->
   <div class="w3-content w3-white w3-padding-64" style="max-width:800px; height:500px; max-height:800px">
@@ -79,14 +79,31 @@ and is wrapped around the whole page content,-->
 
     <!--html-->
     <!-- Button to open the modal login form -->
+    <!--Logo-->
+
     <div class="w3-panel w3-center">
-    <p id="appname">Blabble</p>
-<!--Logo-->
-    <img src="timerPlant.png"></img>
-<div class="w3-content w3-padding-small">
-    <button class="w3-btn w3-teal w3-padding-16" onclick="document.getElementById('id01').style.display='block'">Login</button>
-</div>
-</div>
+          <img src="timerPlant.png" style="position: relative">
+      <div style="position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
+      <p>Clear your mind. Relax. </p>
+
+      <p>Forget all of the rules concerning grammar.  </p>
+      <p id="appname">Blabble</p>
+      <p>What is Freewriting?</p>
+      <p>WRITE. Don’t stop. If you spell words wrong, don’t go back to edit.
+
+        If the idea fades KEEP WRITING. This is crucial to the exercise.
+
+        Even if you have nothing on your mind, write:
+
+        “I HAVE NOTHING ON MY MIND, I HAVE NOTHING ON MY MIND, I HAVE NOTHING ON MY MIND.”
+        You can keep writing this over and over because it is okay.
+        What you are doing is freeing your mind.</p>
+      </div></img>
+
+      <div class="w3-content w3-padding-small">
+        <button class="w3-btn w3-teal w3-padding-16" onclick="document.getElementById('id01').style.display='block'">Login</button>
+      </div>
+    </div>
     <!-- The Modal -->
     <div id="id01" class="modal">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -100,12 +117,12 @@ and is wrapped around the whole page content,-->
           <form action="/homepage#faq">
             <div class="row">
               <h3 class="w3-content w3-center">Login with Social Media or Manually</h3>
-            <!--  <div class="vl w3-center" style="vertical-align: align:center">
+              <!--  <div class="vl w3-center" style="vertical-align: align:center">
                 <span class="vl-innertext">or</span>
               </div>-->
 
               <div class="col w3-content w3-center">
-                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" action="/homepage#faq" >
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" action="/homepage#faq">
                 </fb:login-button>
               </div>
 
@@ -143,29 +160,30 @@ and is wrapped around the whole page content,-->
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
-<!-- Include all compiled plugins (blelow), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (blelow), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
 
 
 
-<script>
-  $(document).ready(function(){
-    $("#doLogin").click(function(){
-      var userName = $("#username").val();
-      console.log(userName);
-      if (userName === "") {
-        alert("Invalid user name!!!");
-      }
-      localStorage.setItem("userName", userName);
+  <script>
+    $(document).ready(function() {
+      $("#doLogin").click(function() {
+        var userName = $("#username").val();
+        console.log(userName);
+        if (userName === "") {
+          alert("Invalid user name!!!");
+        }
+        localStorage.setItem("userName", userName);
+      });
     });
-  });
-</script>
+  </script>
 
-<!-- <script>
+  <!-- <script>
   function getUsername() {
     var user = document.getElementsByName("username").value;
   }
 </script> -->
 </body>
+
 </html>

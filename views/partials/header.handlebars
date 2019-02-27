@@ -33,9 +33,9 @@
             <H2 class="w3-center">User Guide</H2>
 
             <div class=" w3-content w3-panel">
-              <div class="w3-col">
-                <a href="#new" class="btn btn-info w3-card w3-panel w3-hover-pink w3-padding-16 w3-button w3-block" data-toggle="collapse"> How do I <b>make a new entry? <i class="fa fa-caret-down"></i></b></a>
-                <div id="new" class=" w3-panel w3-card collapse">
+              <div class="w3-col accordion" id="selector">
+                <a href="#new" class="btn btn-info w3-card w3-panel w3-hover-pink w3-padding-16 w3-button w3-block" data-toggle="collapse" data-target="#new" role="button"> How do I <b>make a new entry? <i class="fa fa-caret-down"></i></b></a>
+                <div id="new" class=" w3-panel w3-card collapse" data-parent="#selector".>
                   <p class=" w3-left-align">
                     1. Click on "New Entry" on the home page <br>
                     2. Select the feeling you would like to tag your entry <br>
@@ -50,7 +50,7 @@
                 </div>
 
                 <a href="#view" class="btn btn-info w3-hover-pink w3-panel w3-card w3-padding-16 w3-button w3-block" data-toggle="collapse"> How do I <b>find</b> my past entries? <i class="fa fa-caret-down"></i></a>
-                <div id="view" class="collapse w3-card w3-panel">
+                <div id="view" class="collapse w3-card w3-panel" data-parent="#selector">
                   <p class=" w3-left-align">
                     1. Scroll to see a list of all the tags you have picked <br>
                     2. Click on "Tags" on the home page <br>
@@ -61,7 +61,7 @@
                 </div>
 
                 <a href="#date" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-card w3-button w3-block" data-toggle="collapse"> How do I view my past entries sorted by <b>date</b>? <i class="fa fa-caret-down"></i></a>
-                <div id="date" class="collapse w3-card w3-panel">
+                <div id="date" class="collapse w3-card w3-panel" data-parent="#selector">
                   <p class=" w3-left-align">
                     1. Click on "Entries" on the home page <br>
                     2. Scroll to see a list of all of your past entries sorted by date and with tags on the top left of each entry box <br>
@@ -72,7 +72,7 @@
 
                 <H4></H4>
                 <a href="#userview" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-card w3-button w3-block" data-toggle="collapse"> How do I find my <b>profile</b>? <i class="fa fa-caret-down"></i></a>
-                <div id="userview" class="collapse w3-card w3-panel">
+                <div id="userview" class="collapse w3-card w3-panel" data-parent="#selector">
                   <p class=" w3-left-align">
                     1. Click on “Profile” button <br>
                     2. View username and total entries <br>
