@@ -24,11 +24,13 @@
   <div class=" w3-content w3-white  w3-center" style="max-width:800px; max-height:800px margin: auto">
 
     <!-- help bar -->
+
     <header class="w3-center" style="padding-top: 8px";>
       <div class="w3-bar w3-border">
         <img src="instruction.png" onclick="document.getElementById('faq').style.display='block'" class="navicon w3-bar-item w3-button"></img>
 
-        <div id="faq" class="w3-modal">
+        <div id="faq" class="w3-modal" data-backdrop="false">
+
           <div class="w3-modal-content">
             <div class="w3-container">
               <span onclick="document.getElementById('faq').style.display='none'" class="w3-button w3-display-topright">&times;</span>
@@ -92,6 +94,7 @@
           </div>
         </div>
       </div>
+
     </header><!--HEADER END-->
 <div class="w3-padding-32">
     <div class="w3-card-4 w3-center w3-white w3-padding-16 " style="  max-width: 500px;
@@ -133,5 +136,14 @@ var loginUserName = localStorage.getItem("userName");
 $("#user").text(loginUserName);
 </script>
 
+<script>
+//shortcut for $(document).ready
+$(function(){
+if(window.location.hash) {
+var hash = window.location.hash;
+$(hash).appendTo("body").modal('show');
 
+}
+});
+</script>
 </html>
