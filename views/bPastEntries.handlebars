@@ -32,114 +32,42 @@
 
     <!-- CONTENT-->
     <div class="w3-container">
-      <p class="title w3-margin"> Past Entries</p>
-    </div>
-    <div class="w3-card-4 w3-white w3-margin pastentry">
-      <div id="topDiv"></div>
-      <!-- <div class="w3-cell-row">
-        <div class="col-xs-10">
-          <span class="w3-tag" id="tag1"></span>
-          <span class="w3-tag" id="tag2"></span>
-        </div>
-        <div class=" w3-cell-middle">
-          <div class="w3-cell-middle">
-            <a href="/entrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block w3-padding">
-                <h3 id="lsdate"></h3>
-              </button></a>
-          </div>
-        </div>
-      </div> -->
-      {{#each entry}}
-        <div class="w3-cell-row">
-          <div class="col-xs-10">
-            <span class="w3-tag">{{tag1}}</span>
-            <span class="w3-tag">{{tag2}}</span>
-          </div>
-          <div class=" w3-cell-middle">
-            <div class=" w3-cell-middle">
-              <a href="/boldentrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block">
-                  <h3>{{date}}</h3>
-                </button></a>
-            </div>
-          </div>
-        </div>
-      {{/each}}
+      <p class="title w3-margin" id="sort">Past Entries</p>
     </div>
 
+    <div class="w3-card w3-padding">
+      <button type="button mx-auto" class="btn btn-dark" id="dateBtn">Sort by Date</button>
+      <button type="button mx-auto" class="btn btn-dark" id="tagBtn">Sort by Tags</button>
+    </div>
 
-
-
-  </div> <!-- END CONTENT -->
-
-  </div><!-- END CONTAINER -->
-</body><!-- END BODY -->
-
-
-<script>
-  $(document).ready(function() {
-    $("div[data-includeHTML]").each(function() {
-      $(this).load($(this).attr("data-includeHTML"));
-    });
-  });
-
-  function goBack() {
-    window.history.back();
-  }
-
-  var localEntry = JSON.parse(localStorage.getItem("entry"));
-   // var lastItem = localEntry && localEntry.length > 0 ? localEntry[localEntry.length - 1] : null;
-  // if (lastItem) {
-  //   $("#lsdate").text(lastItem.date);
-  //   $("#tag1").text(lastItem.tag1);
-  //   $("#tag2").text(lastItem.tag2);
-  // }
-  for( var key in localEntry )
-  {
-    var div2 = document.createElement("div");
-    div2.setAttribute("class","w3-cell-row");
-
-    var div3 = document.createElement("div");
-    div3.setAttribute("class","col-xs-10");
-
-    var span1 = document.createElement("span");
-    span1.setAttribute("class", "w3-tag");
-    var span2 = document.createElement("span");
-    span2.setAttribute("class", "w3-tag");
-    var span1text = document.createTextNode(localEntry[key].tag1);
-    var span2text = document.createTextNode(localEntry[key].tag2);
-
-    var div4 = document.createElement("div");
-    div4.setAttribute("class","w3-cell-middle");
-
-    var div5 = document.createElement("div");
-    div5.setAttribute("class","w3-cell-middle");
-
-    var a = document.createElement("a");
-    a.setAttribute("href", "/bentrycontent?key=" + [key])
-
-    var tagName = document.createElement("button");
-    tagName.setAttribute("class","w3-btn w3-block");
-
-    var h3 = document.createElement("h3");
-    var datetext = document.createTextNode(localEntry[key].date);
-
-    h3.appendChild(datetext);
-    div2.appendChild(div3);
-    div3.appendChild(span1);
-    div3.appendChild(span2);
-    div2.appendChild(div4);
-    div4.appendChild(div5);
-    div5.appendChild(a);
-    a.appendChild(tagName);
-    tagName.appendChild(h3);
-    span1.appendChild(span1text);
-    span2.appendChild(span2text);
-
-
-    var topDiv = document.getElementById("topDiv");
-    topDiv.appendChild(div2);
-  }
-
-</script>
+    {{>btags}}
+    <!-- <div id="sortentrydates">{{>bdates}}</div>
+    <div id="sortentrytags">{{>btags}}</div> -->
 
 </html>
+
+<script>
+// $('#sortentrytags').show();
+// $('#sortentrydates').hide();
+
+var sort;
+$(document).ready(function(){
+  $("#dateBtn").click(function(){
+    sort = "Date";
+    console.log(sort);
+    document.getElementById("sort").innerHTML = "Past Entries by " + sort ;
+    // $('#sortentrydates').show();
+    // $('#sortentrytags').hide();
+    });
+
+  $("#tagBtn").click(function(){
+    sort = "Tags";
+    console.log(sort);
+    document.getElementById("sort").innerHTML = "Past Entries by " + sort ;
+    // $('#sortentrydates').hide();
+    // $('#sortentrytags').show();
+  });
+});
+
+
+</script>
