@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--Gallery Page-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styling.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <title></title>
+</head>
+
+
+<body class="w3-light-grey w3-padding-16">
+  <!-- light grey bg for large screens -->
+  <!-- w3-content defines a container for fixed size centered content,
+  and is wrapped around the whole page content-->
+  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+
+
+    <!-- Header -->
+    {{>bheader}}
+
+        <div id="entryContent"></div>
+    <!-- CONTENT-->
+    <!-- <div class="w3-card-4 w3-margin-100 w3-white">
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <p class="title" id="lsdate"></p>
+          <p id="content"></p>
+
+        </div>
+      </div>
+
+      <div class="w3-row w3-card-4 w3-padding-small w3-white">
+        <div class="col-xs-10">
+          <span id="tag1" class="w3-tag"></span>
+          <span id="tag2" class="w3-tag"></span>
+
+        </div>
+      </div>
+
+
+
+    </div>
+    <! END CONTENT -->
+
+    <div class="w3-row w3-card-4 w3-padding-small w3-white">
+      <div class="col-xs-10 w3-center">
+
+        <a href="/pastentries"><button type="button mx-auto" class="btn btn-default" id="deleteBtn">Delete</button></a>
+      </div>
+    </div>
+
+  </div><!-- END CONTAINER -->
+
+
+</body><!-- END BODY -->
+
+<script>
+  $(document).ready(function() {
+    $("div[data-includeHTML]").each(function() {
+      $(this).load($(this).attr("data-includeHTML"));
+    });
+  });
+</script>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+
+  var localEntry = JSON.parse(localStorage.getItem("entry"));
+  // var lastItem = localEntry && localEntry.length > 0 ? localEntry[localEntry.length - 1] : null;
+  // if (lastItem) {
+  //   $("#lsdate").text(lastItem.date);
+  //   $("#content").text(lastItem.content);
+  //   $("#tag1").text(lastItem.tag1);
+  //   $("#tag2").text(lastItem.tag2);
+  //   console.log(content);
+  // }
+
+  function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+
+  var entrynumber = getParameterByName('key');
+  console.log(entrynumber);
+
+    var div1 = document.createElement("div");
+    div1.setAttribute("class","w3-card w3-white w3-margin",  "style","overflow-y:scroll" );
+
+    var div2 = document.createElement("div");
+    div2.setAttribute("class","w3-cell-row");
+
+    var div3 = document.createElement("div");
+    div3.setAttribute("class","col-xs-10");
+
+    var span1 = document.createElement("span");
+    span1.setAttribute("class", "w3-tag");
+    var span2 = document.createElement("span");
+    span2.setAttribute("class", "w3-tag");
+    var span1text = document.createTextNode(localEntry[entrynumber].tag1);
+    var span2text = document.createTextNode(localEntry[entrynumber].tag2);
+
+    var div5 = document.createElement("div");
+    div5.setAttribute("class","w3-cell-middle");
+
+    var div6 = document.createElement("div");
+    div6.setAttribute("class","w3-cell-middle w3-center");
+
+    var h2 = document.createElement("h6");
+    var content = document.createTextNode(localEntry[entrynumber].content);
+    h2.appendChild(content);
+    h2.setAttribute("style","width:500px; word-wrap: break-word; margin:auto;")
+
+
+    var h3 = document.createElement("h4");
+    var datetext = document.createTextNode(localEntry[entrynumber].date);
+    h3.appendChild(datetext);
+    h3.setAttribute("class", "w3-block w3-right-align");
+
+    div1.appendChild(div2);
+    div2.appendChild(div3);
+    div3.appendChild(span1);
+    div3.appendChild(span2);
+    div3.appendChild(h3);
+    div2.appendChild(div5);
+    div5.appendChild(div6);
+    div6.appendChild(h2);
+    span1.appendChild(span1text);
+    span2.appendChild(span2text);
+
+    var entryContent = document.getElementById("entryContent");
+    entryContent.appendChild(div1);
+
+
+    deleteBtn.onclick = function() {
+      entryArray = JSON.parse(localStorage.entry);
+      entryArray = entryArray ? entryArray : [];
+      entryArray.splice(entrynumber, 1);
+      localStorage.setItem('entry', JSON.stringify(entryArray));
+    }
+
+</script>
+
+</html>

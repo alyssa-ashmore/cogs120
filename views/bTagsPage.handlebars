@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--Gallery Page-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="css/styling.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <title></title>
+</head>
+
+
+<body class="w3-light-grey w3-padding-16">
+  <!-- light grey bg for large screens -->
+  <!-- w3-content defines a container for fixed size centered content,
+  and is wrapped around the whole page content-->
+  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+
+    <!-- Header -->
+    {{>bheader}}
+
+    <div id="topDiv"></div>
+    <!-- CONTENT-->
+
+   <!--  <div class="w3-container w3-white">
+      {{#each entry}}
+        <div class="w3-cell-row">
+          <div class="w3-cell-middle">
+            <a href="/tagentries"> <button class="w3-btn w3-block ">
+                <h3>{{tag1}}</h3>
+              </button></a>
+          </div>
+        </div>
+
+        <div class="w3-cell-row">
+            <a href="/tagentries"> <button class="w3-btn w3-block">
+                <h3>{{tag2}}</h3>
+              </button></a>
+          </div>
+        </div>
+      {{/each}}
+    </div>-->
+
+
+  </div> <!-- END CONTENT -->
+
+  </div><!-- END CONTAINER -->
+</body><!-- END BODY -->
+<script>
+  $(document).ready(function() {
+    $("div[data-includeHTML]").each(function() {
+      $(this).load($(this).attr("data-includeHTML"));
+    });
+  });
+
+    var localEntry = JSON.parse(localStorage.getItem("entry"));
+
+    var tagsArray = {};
+    for(var i =0; i < localEntry.length; i++)
+    {
+      var obj = localEntry[i];
+      var tag1String = obj.tag1;
+      var tag2String = obj.tag2;
+
+      if( [tag1String] in tagsArray ) {
+        tagsArray[tag1String].push(obj);
+      }  else {
+        tagsArray[tag1String] = [obj];
+      }
+
+      if( [tag2String] in tagsArray ) {
+        tagsArray[tag2String].push(obj);
+      }  else {
+        tagsArray[tag2String] = [obj];
+      }
+    }
+
+    localStorage.setItem("tagsArray", JSON.stringify(tagsArray));
+
+
+    for( var key in tagsArray )
+    {
+      var div1 = document.createElement("div");
+      div1.setAttribute("class","w3-container w3-white");
+
+      var div2 = document.createElement("div");
+      div2.setAttribute("class","w3-cell-row");
+
+      var div3 = document.createElement("div");
+      div3.setAttribute("class","w3-cell-middle");
+
+      var tagName = document.createElement("button");
+      tagName.setAttribute("class","w3-btn w3-block");
+
+      var h3 = document.createElement("h3");
+      var text = document.createTextNode([key]);
+
+      var a = document.createElement("a");
+      a.setAttribute("href", "/btagentries?tag=" + [key] )
+
+      h3.appendChild(text);
+      div1.appendChild(div2);
+      div2.appendChild(div3);
+      div3.appendChild(a);
+      a.appendChild(tagName);
+      tagName.appendChild(h3);
+
+      var topDiv = document.getElementById("topDiv");
+      topDiv.appendChild(div1);
+    }
+
+</script>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+</html>

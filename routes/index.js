@@ -49,3 +49,51 @@ exports.prompt1 = function(req, res){
 exports.prompt2 = function(req, res){
 	res.render('prompt2');
 };
+
+
+exports.bview = function(req, res){
+	res.render('bindex');
+};
+
+exports.bhomepage = function(req, res){
+  res.render('bHomePage');
+};
+
+exports.bpostentry = function(req, res){
+	console.log(entry);
+	res.render('bPastEntries', entry);
+};
+
+exports.bprofile = function(req, res){
+	res.render('bProfilePage');
+};
+
+
+exports.bnewentry = function(req, res){
+	res.render('bNewEntry');
+};
+
+exports.btagspage = function(req, res){
+	res.render('bTagsPage', entry);
+};
+
+exports.btagentries = function(req, res){
+	res.render('bTagEntries');
+};
+
+exports.bviewentry = function(req, res){
+	res.render('bEntryContent');
+};
+
+exports.bviewold = function(req, res){
+	res.render('bOldEntryContent');
+};
+
+
+exports.bprompt1 = function(req, res){
+	res.render('bprompt1');
+};
+
+exports.bprompt2 = function(req, res){
+	res.render('bprompt2');
+};

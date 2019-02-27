@@ -55,6 +55,18 @@ app.get('/oldentrycontent', index.viewold);
 app.get('/prompt1',index.prompt1);
 app.get('/prompt2',index.prompt2);
 
+app.get('/b', index.bview);
+app.get('/bhomepage', index.bhomepage);
+app.get('/bpastentries', index.bpostentry);
+app.get('/bprofile', index.bprofile);
+app.get('/bnewentry',index.bnewentry);
+app.get('/btagspage',index.btagspage);
+app.get('/btagentries',index.btagentries);
+app.get('/bentrycontent',index.bviewentry);
+app.get('/boldentrycontent', index.bviewold);
+app.get('/bprompt1',index.bprompt1);
+app.get('/bprompt2',index.bprompt2);
+
 
 
 http.createServer(app).listen(app.get('port'), function(){

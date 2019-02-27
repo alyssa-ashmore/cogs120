@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--Gallery Page-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/styling.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <title></title>
+</head>
+
+
+<body class="w3-light-grey w3-padding-16">
+  <!-- light grey bg for large screens -->
+  <!-- w3-content defines a container for fixed size centered content,
+  and is wrapped around the whole page content-->
+  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+
+
+    <!-- Header -->
+    {{>bheader}}
+
+
+    <!-- CONTENT-->
+<div class="w3-container">
+  <p class="title w3-margin">Entries tagged
+    <span id="replaceTag"></span>
+  </p>
+</div>
+<div id="topDiv"></div>
+<!--
+    <div class="w3-card-4 w3-white w3-margin pastentry">
+      <div class="w3-cell-row">
+        <div class="col-xs-10">
+          <span class="w3-tag" id="tag1"></span>
+          <span class="w3-tag" id="tag2"></span>
+        </div>
+        <div class=" w3-cell-middle">
+          <div class="w3-cell-middle">
+            <a href="/entrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block w3-padding">
+                <h3 id="lsdate"></h3>
+              </button></a>
+          </div>
+        </div>
+      </div>-->
+
+  </div>  <!-- END CONTENT -->
+
+  </div><!-- END CONTAINER -->
+</body><!-- END BODY -->
+
+<script>
+
+    // use partials ??
+    function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var tag = getParameterByName('tag');
+    document.getElementById("replaceTag").innerHTML = tag;
+
+    var tagsArray = JSON.parse(localStorage.getItem("tagsArray"));
+
+    for( var key in tagsArray[tag] )
+    {
+      console.log("hello");
+      var div1 = document.createElement("div");
+      div1.setAttribute("class","w3-card w3-white w3-margin");
+
+      var div2 = document.createElement("div");
+      div2.setAttribute("class","w3-cell-row");
+
+      var div3 = document.createElement("div");
+      div3.setAttribute("class","col-xs-10");
+
+      var span1 = document.createElement("span");
+      span1.setAttribute("class", "w3-tag");
+      var span2 = document.createElement("span");
+      span2.setAttribute("class", "w3-tag");
+      var span1text = document.createTextNode(tagsArray[tag][key].tag1);
+      var span2text = document.createTextNode(tagsArray[tag][key].tag2);
+
+      var div5 = document.createElement("div");
+      div5.setAttribute("class","w3-cell-middle");
+
+      var div6 = document.createElement("div");
+      div6.setAttribute("class","w3-cell-middle w3-center");
+
+      var h2 = document.createElement("h6");
+      var content = document.createTextNode(tagsArray[tag][key].content);
+      h2.appendChild(content);
+      h2.setAttribute("style","width:500px; word-wrap: break-word; margin:auto;")
+
+      var h3 = document.createElement("h4");
+      var datetext = document.createTextNode(tagsArray[tag][key].date);
+      h3.appendChild(datetext);
+      h3.setAttribute("class", "w3-block w3-right-align");
+
+      div1.appendChild(div2);
+      div2.appendChild(div3);
+      div3.appendChild(span1);
+      div3.appendChild(span2);
+      div3.appendChild(h3);
+      div2.appendChild(div5);
+      div5.appendChild(div6);
+      div6.appendChild(h2);
+      span1.appendChild(span1text);
+      span2.appendChild(span2text);
+
+      var topDiv = document.getElementById("topDiv");
+      topDiv.appendChild(div1);
+
+    }
+
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+
+    var tagsArray = JSON.parse(localStorage.getItem("tagsArray"));
+    for( i = 0; i < tagsArray[tag].length; i++ )
+    {
+
+    }
+
+    var topDiv = document.getElementById("topDiv");
+
+
+
+
+
+  /*  var localEntry = JSON.parse(localStorage.getItem("entry"));
+    var lastItem = localEntry && localEntry.length > 0? localEntry[localEntry.length - 1]: null;
+    if (lastItem) {
+      $("#date").text(lastItem.date);
+      $("#content").text(lastItem.content);
+      $("#tag1").text(lastItem.tag1);
+      $("#tag2").text(lastItem.tag2);
+    }
+    */
+</script>
+
+<script>
+		function goBack() {
+		window.history.back();
+}
+</script>
+</html>

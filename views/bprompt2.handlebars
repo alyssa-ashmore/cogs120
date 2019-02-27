@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--Prompt 2 Page-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styling.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <title></title>
+</head>
+
+<style>
+  .w3-cell-row {
+    text-align: center;
+    margin-bottom: 1%;
+}
+</style>
+
+<body class="w3-light-grey w3-padding-16">
+  <!-- light grey bg for large screens -->
+  <!-- w3-content defines a container for fixed size centered content,
+  and is wrapped around the whole page content-->
+  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+
+
+    <!-- Header -->
+    {{>bheader}}
+
+    <p class="w3-xlarge" align="center">WHAT ARE YOU THINKING ABOUT?</p>
+
+    <!-- CONTENT-->
+    <div class="w3-container">
+      <div class="w3-cell-row">
+        <div class="w3-cell-middle">
+          <a href="/bnewentry?tag2=school" class="tag"> <button id='school' class="w3-btn w3-round-xlarge
+                        w3-border w3-border-blue">
+              <h8>SCHOOL</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bnewentry?tag2=work" class="tag"> <button id='work' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue tag">
+              <h8>WORK</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bnewentry?tag2=family" class="tag"> <button id='family' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue tag">
+              <h8>FAMILY</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bnewentry?tag2=travel" class="tag"><button id='travel' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue tag">
+              <h8>TRAVEL</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bnewentry?tag2=friends" class="tag"><button id='friends' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue tag">
+              <h8>FRIENDS</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <button class="w3-btn w3-round-xlarge w3-border w3-border-blue" onclick='show()'>
+            <h8 id="plus"> + </h8>
+
+            <form id="form1" class="tag" method="GET">
+              <input type="text" id="tag2" name="tag2" placeholder="Enter Tag..." required>
+              <input id="submit" type="submit">
+            </form>
+            </a>
+          </button>
+        </div>
+      </div>
+
+    </div> <!-- END CONTENT -->
+
+  </div><!-- END CONTAINER -->
+</body><!-- END BODY -->
+<script>
+  $('#tag2').hide();
+  $('#submit').hide();
+
+
+  function show() {
+    $('#tag2').show();
+    $('#plus').hide();
+    $('#submit').show();
+  }
+
+  $(document).ready(function() {
+    $("#submit").click(function() {
+      var tag2 = $("#tag2").val();
+      if (tag2 === "") {
+        alert("Must enter a tag");
+      }
+      window.location.href = "/bnewentry?tag2=" + tag2 + '&tag1=' + getParameterByName('tag1');
+      console.log(tag2);
+      return false;
+    });
+  });
+
+  function goBack() {
+    window.history.back();
+  }
+
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+  /*
+      function entryPage(my_form)
+      {
+        window.location.href = "/newentry?tag2=" + tag2 + '&tag1=' + getParameterByName('tag1');
+        return false;
+      }
+  */
+  // each <a> element
+  // class="... tag"
+  // prompt2.js
+  var tag1 = getParameterByName('tag1')
+  var tags = document.querySelectorAll('.tag')
+
+  for (var i = 0; i < tags.length; i++) {
+    tags[i].setAttribute('href', tags[i].getAttribute('href') + '&tag1=' + tag1)
+  }
+</script>
+
+</html>

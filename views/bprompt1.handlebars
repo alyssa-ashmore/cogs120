@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--Prompt 1 Page-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="css/styling.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    var entry = { tags: [], entryContent:'', date: new Date()};
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <title></title>
+
+</head>
+
+<style>
+  .w3-cell-row {
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+</style>
+
+<body class="w3-light-grey w3-padding-16">
+  <!-- light grey bg for large screens -->
+  <!-- w3-content defines a container for fixed size centered content,
+  and is wrapped around the whole page content-->
+  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+
+
+
+
+        <!-- Header -->
+        {{>bheader}}
+
+    <p class="w3-xlarge" align="center">HOW ARE YOU FEELING TODAY?</p>
+
+    <!-- CONTENT-->
+    <div class="w3-container">
+      <div class="w3-cell-row">
+        <div class="w3-cell-middle">
+          <a href="/bprompt2?tag1=happy"> <button id='happy' class="w3-btn w3-round-xlarge
+                        w3-border w3-border-blue">
+              <h8>HAPPY</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bprompt2?tag1=sad"> <button id='sad' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue">
+              <h8>SAD</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bprompt2?tag1=grateful"><button id='grateful' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue">
+              <h8>GRATEFUL</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bprompt2?tag1=content"> <button id='content' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue" onclick='createNewEntry(this.id)'>
+              <h8>CONTENT</h8>
+            </button></a>
+        </div>
+      </div>
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+          <a href="/bprompt2?tag1=anxious"> <button id='anxious' class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue">
+              <h8>ANXIOUS</h8>
+            </button></a>
+        </div>
+      </div>
+
+
+      <div class="w3-cell-row">
+        <div class=" w3-cell-middle">
+
+          <button class="w3-btn w3-round-xlarge w3-border w3-border-blue" onclick='show()'>
+            <h8 id="plus"> + </h8>
+
+            <form action="/prompt2?tag1=" method="GET">
+              <input type="text" id="tag1" name="tag1" placeholder="Enter Tag..." required>
+              <input id="submit" type="submit">
+            </form>
+          </button>
+        </div>
+      </div>
+
+      <!--
+          <div class="w3-cell-row">
+					<div class=" w3-cell-middle">
+						<a href="/prompt2?tag1=+"> <button class="w3-btn w3-round-xlarge
+                         w3-border w3-border-blue" >
+								<h8> + </h8>
+							</button></a>
+					</div>
+				</div>
+-->
+
+
+    </div><!-- END CONTENT -->
+
+  </div><!-- END CONTAINER -->
+</body><!-- END BODY -->
+
+<script>
+  $('#tag1').hide();
+  $('#submit').hide();
+
+
+  function show() {
+    $('#tag1').show();
+    $('#plus').hide();
+    $('#submit').show();
+  }
+
+  $(document).ready(function() {
+    $("#doLogin").click(function() {
+      var tag1 = $("#tag1").val();
+      console.log(tag1);
+      if (tag1 === "") {
+        alert("Must enter a tag");
+      }
+      localStorage.setItem("tag1", tag1);
+    });
+  });
+
+  $(document).ready(function() {
+    $("div[data-includeHTML]").each(function() {
+      $(this).load($(this).attr("data-includeHTML"));
+    });
+  });
+</script>
+
+<script>
+  var entry = {
+    tags: [],
+    entryContent: '',
+    date: new Date()
+  };
+
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+</html>
