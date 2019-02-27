@@ -215,8 +215,8 @@ and is wrapped around the whole page content,-->
   // each <a> element
   // class="... tag"
   // prompt2.js
-  document.getElementById("tag1").innerHTML = "#" + getParameterByName('tag1');
-  document.getElementById("tag2").innerHTML = "#" + getParameterByName('tag2');
+  document.getElementById("tag1").innerHTML = getParameterByName('tag1');
+  document.getElementById("tag2").innerHTML = getParameterByName('tag2');
 
   function download() {
     var text = document.getElementById("exampleFormControlTextarea2").value;

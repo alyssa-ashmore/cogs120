@@ -53,6 +53,10 @@
   text-decoration-color: none;
 }
 
+.w3-tag::before {
+	content: "#";
+}
+
 =======
 >>>>>>> fd61ba3a6ead47e3bf9b7ac204534ca08d137513
 /* style inputs and link buttons */
