@@ -25,7 +25,7 @@
 
   <!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content,-->
-  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+  <div class="w3-content w3-white " style="max-width:800px; height:auto; max-height:800px">
     <!-- Grid
 
 <div class="w3-card-4">
@@ -41,13 +41,13 @@ and is wrapped around the whole page content,-->
 
   {{>bheader}}
 
-    <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-card-4  w3-white">
 
       <div class="w3-cell-row">
         <!-- flower start here-->
-        <div class=" w3-col s3 w3-center">
+        <div class=" w3-col w3-third w3-center">
 
-          <div class="w3-content w3-center icn">
+          <div class="w3-content w3-center">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="697 709 512 512">
               <defs>
                 <style>
@@ -139,10 +139,10 @@ and is wrapped around the whole page content,-->
 
           <!--Timer-->
           <div class="tool">
-            <button class="w3-btn" id="btn1"><i class='far fa-play-circle'></i></button>
+            <button class="w3-btn" id="btn1"><i class='far fa-pause-circle'></i></button>
             <button class="w3-btn" id="btn4"><i class="fas fa-undo-alt"></i></button>
           </div>
-
+<div class="w3-card" id="fin"></div>
           <!--EndTimer-->
 
         </div>
@@ -150,17 +150,17 @@ and is wrapped around the whole page content,-->
 
 
         <!-- FORM -->
-        <div class="w3-col s9 w3-center w3-white w3-padding-small">
+        <div class="w3-col w3-twothird w3-center w3-white w3-padding-small">
 
           <div class="form-group">
-            <textarea class="form-control rounded-0" id="textArea" placeholder="Write here, right now..." rows="5"></textarea>
+            <textarea class="form-control rounded-0" id="textArea" placeholder="Write here, right now...Clicking inside the text box starts the timer!" rows="5"></textarea>
           </div>
           <!-- TAG AND SAVE -->
           <div class="w3-row w3-card-4 w3-padding-small w3-white">
             <div class="col-xs-10">
               <span id="tag1" class="w3-tag"></span>
               <span id="tag2" class="w3-tag"></span>
-              <button type="button mx-auto" class="btn btn-default" id="myBtn">Save</button>
+              <button type="button mx-auto" class="w3-btn btn-default" id="myBtn">Save</button>
 
               <div id="myModal" class="modal">
 
@@ -168,8 +168,8 @@ and is wrapped around the whole page content,-->
                 <div class="modal-content">
                   <span class="close">&times;</span>
                   <h2>Draft Saved!</h2>
-                  <p> View in </p>
-                  <a href="/bpastentries"> <button class="w3-button">Past Entries.</button></a>
+                  <p> View your post in </p>
+                  <a href="/pastentries"> <button class="w3-button btn-info w3-blue">Past Entries.</button></a>
                 </div>
 
               </div>
