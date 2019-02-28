@@ -18,13 +18,9 @@
 </head>
 
 
-<body class="w3-light-grey w3-padding-16">
-  <!-- light grey bg for large screens -->
-  <!-- w3-content defines a container for fixed size centered content,
-  and is wrapped around the whole page content-->
-  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
-
-    <div id="topDiv"></div>
+<body>
+<div class="w3-card-4 w3-white w3-margin pastentry">
+    <div id="tagdiv"></div>
     <!-- CONTENT-->
 
    <!--  <div class="w3-container w3-white">
@@ -48,8 +44,7 @@
 
 
   </div> <!-- END CONTENT -->
-
-  </div><!-- END CONTAINER -->
+</div>
 </body><!-- END BODY -->
 <script>
   $(document).ready(function() {
@@ -110,8 +105,8 @@
       a.appendChild(tagName);
       tagName.appendChild(h3);
 
-      var topDiv = document.getElementById("topDiv");
-      topDiv.appendChild(div1);
+      var tagdiv = document.getElementById("tagdiv");
+      tagdiv.appendChild(div1);
     }
 
 </script>
