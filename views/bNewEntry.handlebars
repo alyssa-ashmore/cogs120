@@ -14,8 +14,155 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
-<script src="require.js"></script>
-<script src="timer.js"></script>
+<!--<script src="require.js"></script>-->
+<script>// https://www.august.com.au/blog/svg-animation-with-greensock/
+
+window.onload=function(){
+
+const tl = new TimelineMax({immediateRender:true,paused:true});
+const elem = document.getElementById('ellipse-53');
+var playBtn = document.getElementById('btn1');
+const playForm = document.getElementById('textArea');
+
+const restartBtn = document.getElementById('btn4');
+
+//elem.style.opacity = 0; moved to Set
+let duration = 1;
+var currentTimeScale = tl.timeScale(0.3); //sets current timeScale
+let paused = tl.paused();
+tl.duration(1);
+
+
+
+
+playBtn.addEventListener('click', function(e) {
+
+   tl.pause();
+  // playBtn.innerHTML = "<i class='far fa-play-circle'></i>" ;
+   paused=true;
+
+  });
+
+playForm.addEventListener('click', function(e){
+  tl.play();
+document.getElementById('btn1').innerHTML = "<i class='far fa-pause-circle'></i>";
+  paused=false;
+});
+//maybe delete the restart, but i feel like if they forget, they should be able to restart
+restartBtn.addEventListener('click', function(e) {
+  tl.time(0);
+  tl.pause();
+  paused=true;
+});
+
+
+
+function myFunction() {
+  var x = document.getElementById("fin");
+
+    x.style.display = "block";
+    x.innerhtml="'<p>Good Job! You reflected for ' + tl.duration() + 'seconds!<.p>'";
+  /*  if (x.style.display === "none") {} else {
+    x.style.display = "none";
+  }*/
+}
+
+
+
+
+/* letter "g" animation
+tl.set(elem, {
+  opacity: 0
+})
+.to(elem, duration, {
+  x: 1000,
+  opacity: 1,
+  scale: 2,
+  ease: Elastic.easeOut.config(1, 0.3)
+});
+
+tl.to(elem, duration, {
+  y: 100,
+  scale: 8,
+}, "-=1");
+*/
+
+
+/* flower animation */
+const icnBg = document.getElementById('icnBg');
+const petales_grp1 = document.querySelectorAll('.cls-8');
+const petales_grp2 = document.querySelectorAll('.cls-9');
+const petales_center = document.querySelector('.cls-10');
+
+const plante_tige = document.querySelector('.cls-7');
+const plante_leafRight = document.getElementById('group-7-2');
+const plante_leafLeft = document.getElementById('group-7');
+
+var flower = [petales_grp1, petales_grp2, petales_center];
+var plante = [plante_tige, plante_leafRight, plante_leafLeft];
+
+
+tl.set(petales_grp1, {
+  scale: 0,
+  transformOrign:'0% 0%',
+  //rotation: 0
+})
+
+tl.set(petales_grp2, {
+  scale: 0,
+})
+
+tl.set(petales_center, {
+  scale: 0,
+  transformOrign:'0% 0%'
+})
+
+tl.set(plante_tige, {
+  scale: 0
+})
+
+tl.set(plante_leafRight, {
+  scale: 0
+})
+
+tl.set(plante_leafLeft, {
+  scale: 0
+})
+
+
+tl.staggerTo(plante, 0.8, {
+  scale: 1
+}, 0.5,
+
+  //onComplete:tweenComplete,
+  //onCompleteParams:["{self}"]},
+  //1.2, myCompleteAll
+
+);
+
+tl.staggerTo(flower, 0.8, {
+  scale: 1
+}, 0.5
+  //onComplete:tweenComplete,
+  //onCompleteParams:["{self}"]},
+  //1.2, myCompleteAll
+);
+
+tl.eventCallback("onComplete", function() {
+
+  console.log(tl.totalDuration()+"seconds total. This is message from onComplete");
+  //var x = 
+  document.getElementById("fin")innerhtml='Good Job! You reflected for' + tl.duration() + 'seconds!';
+//if (x.style.display == "none") {
+  //x.style.display = " ";
+  //  x.
+
+//} else {
+  //  x.style.display = "none";}
+});
+}
+
+</script>
 
 <title>Entry Page</title>
 
@@ -37,9 +184,9 @@ and is wrapped around the whole page content,-->
 
 
 
-  <!-- Header -->
+    <!-- Header -->
 
-  {{>bheader}}
+    {{>bheader}}
 
     <div class="w3-card-4  w3-white">
 
@@ -137,15 +284,22 @@ and is wrapped around the whole page content,-->
             </svg>
           </div>
 
-          <!--Timer-->
-          <div class="tool">
-            <button class="w3-btn" id="btn1"><i class='far fa-pause-circle'></i></button>
-            <button class="w3-btn" id="btn4"><i class="fas fa-undo-alt"></i></button>
+          <!--Timer controls-->
+
+          <div class="w3-card ">
+            <div class="tool">
+              <button class="w3-btn" id="btn1"><i class='far fa-pause-circle'></i></button>
+              <button class="w3-btn" id="btn4"><i class="fas fa-undo-alt"></i></button>
+            </div>
+
+            <div class="w3-panel w3-blue">
+              <p id="fin" >Write here!</p>
+            </div>
+            <!--<span class="w3-text w3-alert"></span>-->
           </div>
-<div class="w3-card" id="fin"></div>
-          <!--EndTimer-->
 
         </div>
+
 
 
 
@@ -259,7 +413,7 @@ and is wrapped around the whole page content,-->
     localStorage.setItem("entry", JSON.stringify(entryArr));
     // fs.writeFile("entry.json", JSON.stringify(entryArr));
 
-    unsaved = false;//now saved
+    unsaved = false; //now saved
   }
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
@@ -275,19 +429,19 @@ and is wrapped around the whole page content,-->
   ////unsaved Function////////////////////////////////////////////////////////
 
 
-$("#textArea").change(function(){ //triggers change in all input fields including text type
+  $("#textArea").change(function() { //triggers change in all input fields including text type
     unsaved = true;
-});
+  });
 
-function unloadPage(){
-    if(unsaved){
-        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+  function unloadPage() {
+    if (unsaved) {
+      return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
     }
-}
+  }
 
-$('#save').click(function() {
+  $('#save').click(function() {
     unsaved = false;
-});
+  });
 </script>
 
 
