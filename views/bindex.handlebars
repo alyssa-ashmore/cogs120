@@ -66,7 +66,6 @@
 
 </head>
 
-
 <!-- light grey bg for large screens -->
 
 <body class="w3-light-grey w3-padding-16">
@@ -94,13 +93,12 @@ and is wrapped around the whole page content,-->
     left:0;
     z-index:1;"></div>
 
-<div class="content" style="  position:relative;
-z-index:2;">
-  <p class="lead">Clear your mind. Relax.<br>
-  Forget all of the rules concerning grammar. </p>
+<div id="cont" class="content" style="position:relative; z-index:2;">
+  <h4 style= "font-family: 'Arial'; color: DarkTurquoise;">Clear your mind. Relax.<br><br>
+  Forget all of the rules concerning grammar.<br><br><br><br> </h4>
     <h1 class="display-4">Blabbl</h1>
   <hr class="my-4">
-  <p>WRITE. Don’t stop. If you spell words wrong, don’t go back to edit.
+  <!--<p>WRITE. Don’t stop. If you spell words wrong, don’t go back to edit.
 
     If the idea fades KEEP WRITING. This is crucial to the exercise.
 
@@ -109,9 +107,9 @@ z-index:2;">
     “I HAVE NOTHING ON MY MIND, I HAVE NOTHING ON MY MIND, I HAVE NOTHING ON MY MIND.”<br>
     You can keep writing this over and over because it is okay.<br>
     What you are doing is freeing your mind.<br>
-  </p>
+  </p>-->
   <p class="lead">
-        <button class="w3-btn w3-teal w3-padding-16" onclick="document.getElementById('id01').style.display='block'">Login</button>
+        <button style="background-color: DarkTurquoise" class="w3-btn mediuw3-padding-16" onclick="document.getElementById('id01').style.display='block'">Login</button>
   </p>
 </div>
 </div>
@@ -125,7 +123,7 @@ z-index:2;">
 
         <div class="container">
       <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" title="Close Modal">&times;</span>
-          <form action="/bhomepage#faq">
+          <form action="/bhomepage">
             <div class="row">
               <h3 class="w3-content w3-center">Login with Social Media or Manually</h3>
               <!--  <div class="vl w3-center" style="vertical-align: align:center">
@@ -171,6 +169,7 @@ z-index:2;">
 
 
   </div>
+  </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -180,6 +179,8 @@ z-index:2;">
 
 
   <script>
+
+    $("#cont").fadeIn(2000);
     $(document).ready(function() {
       $("#doLogin").click(function() {
         var userName = $("#username").val();
