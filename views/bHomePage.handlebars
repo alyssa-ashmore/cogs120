@@ -34,7 +34,7 @@
 
           <div class="w3-modal-content">
             <div class="w3-container">
-              <span onclick="document.getElementById('faq').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+              <span onclick="document.getElementById('faq').style.display='none'" class="w3-button w3-display-topright">X</span>
 
               <!-- GUIDE content-->
               <H2 class="w3-center">User Guide</H2>
@@ -96,8 +96,30 @@
         </div>
       </div>
 
+      <!-- INTRO -->
+      <div id="intro" class="w3-modal">
+          <div class="w3-modal-content">
+              <div class="w3-container">
+                <span id="exit" onclick="clicked()" class="w3-button w3-display-topright">X</span>
+
+                <H2 class="w3-center">Introduction</H2>
+
+                  <h5> <br>WRITE. Don’t stop. If you spell words wrong, don’t go back to edit.<br><br>
+
+                      If the idea fades, KEEP WRITING. This is crucial to the exercise.<br><br>
+
+                      Even if you have nothing on your mind, write:<br><br>
+
+                      “I HAVE NOTHING ON MY MIND, I HAVE NOTHING ON MY MIND, I HAVE NOTHING ON MY MIND.”<br><br>
+                      You can keep writing this over and over because it is okay.<br><br>
+                      What you are doing is freeing your mind.<br><br>
+                  </h5> 
+                </div>
+           </div>
+        </div>
+
     </header><!--HEADER END-->
-<div class="w3-center">
+<div id="topContainer" class="w3-center">
     <div class="w3-card-4 w3-center w3-white w3-padding-16" style="max-width:500px;  margin: auto">
       <div class= "w3-row">
         <p>Welcome back </p> <p id="user" style="margin-bottom: 0px"></p>
@@ -136,6 +158,21 @@ $("#user").text(loginUserName);
 </script>
 
 <script>
+
+function clicked() {
+document.getElementById('intro').style.display='none';
+}
+
+$(document).ready(function() {
+    var isshow = localStorage.getItem('isshow');
+    if (isshow== null) {
+        localStorage.setItem('isshow', 1);
+
+        // Show popup here
+        $('#intro').show();
+    }
+});
+
 //shortcut for $(document).ready
 $(function(){
 if(window.location.hash) {

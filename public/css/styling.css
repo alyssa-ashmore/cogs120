@@ -10,6 +10,11 @@
   height: 300px;
 }
 
+.pasttags {
+  overflow: scroll;
+  height: 300px;
+}
+
 #appname {
   font-size: 30px;
   margin-top: -20px;
@@ -48,12 +53,23 @@
   padding: 20px 0 30px 0;
 }
 
+.bottom-10 {
+  margin-bottom: 10px;
+}
+
+.noborder {
+  border: none;
+}
+
+.shadow:hover {
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+}
+
 <<<<<<< HEAD
 /* removes underlines and blue color for new entry text */
 .w3-btn:hover {
-  color: black;
   text-decoration: none;
-  text-decoration-color: none;
+  text-decoration-color: black;
 }
 
 .w3-tag::before {
