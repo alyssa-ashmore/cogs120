@@ -93,8 +93,7 @@ and is wrapped around the whole page content,-->
     left:0;
     z-index:1;"></div>
 
-<div class="content" style="  position:relative;
-z-index:2;">
+<div id="cont" class="content" style="position:relative; z-index:2;">
   <h4 style= "font-family: 'Arial'; color: DarkTurquoise;">Clear your mind. Relax.<br><br>
   Forget all of the rules concerning grammar.<br><br><br><br> </h4>
     <h1 class="display-4">Blabbl</h1>
@@ -181,6 +180,7 @@ z-index:2;">
 
   <script>
 
+    $("#cont").fadeIn(2000);
     $(document).ready(function() {
       $("#doLogin").click(function() {
         var userName = $("#username").val();
