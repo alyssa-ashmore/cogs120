@@ -27,7 +27,7 @@ const playForm = document.getElementById('textArea');
 const restartBtn = document.getElementById('btn4');
 
 //elem.style.opacity = 0; moved to Set
-let duration = 1;
+let duration = 3;
 var currentTimeScale = tl.timeScale(0.3); //sets current timeScale
 let paused = tl.paused();
 tl.duration(1);
@@ -58,7 +58,7 @@ restartBtn.addEventListener('click', function(e) {
 
 
 function myFunction() {
-  var x = document.getElementById("fin");
+  var x = document.getElementById(".p fin");
 
     x.style.display = "block";
     x.innerhtml="'<p>Good Job! You reflected for ' + tl.duration() + 'seconds!<.p>'";
@@ -151,8 +151,8 @@ tl.staggerTo(flower, 0.8, {
 tl.eventCallback("onComplete", function() {
 
   console.log(tl.totalDuration()+"seconds total. This is message from onComplete");
-  //var x = 
-  document.getElementById("fin")innerhtml='Good Job! You reflected for' + tl.duration() + 'seconds!';
+  //var x =
+  //document.getElementById("fin")innerhtml='Good Job! You reflected for' + tl.duration() + 'seconds!';
 //if (x.style.display == "none") {
   //x.style.display = " ";
   //  x.
@@ -291,9 +291,10 @@ and is wrapped around the whole page content,-->
               <button class="w3-btn" id="btn1"><i class='far fa-pause-circle'></i></button>
               <button class="w3-btn" id="btn4"><i class="fas fa-undo-alt"></i></button>
             </div>
-
-            <div class="w3-panel w3-blue">
-              <p id="fin" >Write here!</p>
+            <div class="w3-blue">
+              <p id="fin" >WRITE. Don’t stop. If you spell words wrong, don’t go back to edit.
+If the idea fades KEEP WRITING. This is crucial to the exercise.
+</p>
             </div>
             <!--<span class="w3-text w3-alert"></span>-->
           </div>
