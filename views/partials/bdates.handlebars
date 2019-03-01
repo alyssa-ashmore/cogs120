@@ -39,14 +39,14 @@
         </div>
       </div> -->
       {{#each entry}}
-        <div class="w3-cell-row">
+        <div class="shadow w3-cell-row w3-margin-bottom w3-border w3-border-light-grey w3-hover-light-grey with w3-hover-opacity w3-round-large">
           <div class="col-xs-10">
             <span class="w3-tag">{{tag1}}</span>
             <span class="w3-tag">{{tag2}}</span>
           </div>
           <div class=" w3-cell-middle">
             <div class=" w3-cell-middle">
-              <a href="/boldentrycontent" style="text-decoration: none;"> <button class="w3-btn w3-block">
+              <a href="/boldentrycontent" style="text-decoration: none; color:black"> <button class="w3-button w3-block w3-hover-light-grey">
                   <h3>{{date}}</h3>
                 </button></a>
             </div>
@@ -84,10 +84,11 @@
   for( var key in localEntry )
   {
     var div2 = document.createElement("div");
-    div2.setAttribute("class","w3-cell-row");
+    div2.setAttribute("class","shadow w3-cell-row w3-margin-bottom w3-border w3-border-light-grey w3-hover-light-grey with w3-hover-opacity w3-round-large");
 
-    var div3 = document.createElement("div");
-    div3.setAttribute("class","col-xs-10");
+
+    var div3 = document.createElement("button");
+    div3.setAttribute("class","w3-btn col-xs-10");
 
     var span1 = document.createElement("span");
     span1.setAttribute("class", "w3-tag");
@@ -103,10 +104,12 @@
     div5.setAttribute("class","w3-cell-middle");
 
     var a = document.createElement("a");
-    a.setAttribute("href", "/bentrycontent?key=" + [key])
+    a.setAttribute("style", "text-decoration:none;");
+    a.setAttribute("href", "/bentrycontent?key=" + [key]);
 
     var tagName = document.createElement("button");
-    tagName.setAttribute("class","w3-btn w3-block");
+    tagName.setAttribute("class","w3-button w3-block w3-hover-light-grey");
+    tagName.setAttribute("style", "color:black");
 
     var h3 = document.createElement("h3");
     var datetext = document.createTextNode(localEntry[key].date);

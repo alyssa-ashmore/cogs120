@@ -19,7 +19,7 @@
 
 
 <body>
-<div class="w3-card-4 w3-white w3-margin pastentry">
+<div class="w3-card-4 w3-white w3-margin pasttags">
     <div id="tagdiv"></div>
     <!-- CONTENT-->
 
@@ -87,16 +87,18 @@
       div2.setAttribute("class","w3-cell-row");
 
       var div3 = document.createElement("div");
-      div3.setAttribute("class","w3-cell-middle");
+      div3.setAttribute("class","w3-cell-middle w3-center bottom-10");
 
       var tagName = document.createElement("button");
-      tagName.setAttribute("class","w3-btn w3-block");
+      tagName.setAttribute("class","w3-btn btn-width w3-round-xlarge w3-border w3-hover-light-grey");
 
-      var h3 = document.createElement("h3");
+      var h3 = document.createElement("h5");
       var text = document.createTextNode([key]);
 
       var a = document.createElement("a");
-      a.setAttribute("href", "/btagentries?tag=" + [key] )
+      a.setAttribute("href", "/btagentries?tag=" + [key] );
+      a.setAttribute("style", "text-decoration:none;");
+
 
       h3.appendChild(text);
       div1.appendChild(div2);

@@ -22,11 +22,13 @@
   <!-- light grey bg for large screens -->
   <!-- w3-content defines a container for fixed size centered content,
   and is wrapped around the whole page content-->
-  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+  <div class="w3-content w3-white w3-center" style="max-width:800px; height:500px; max-height:800px">
 
     <!-- Header -->
     {{>bheader}}
-    <div class="w3-card-4 w3-white w3-margin pastentry">
+    <p class="title" id="sort">Entries Sorted by Tags</p>
+
+    <div class="w3-card-4 w3-white w3-margin pasttags">
     <div id="topDiv"></div>
     <!-- CONTENT-->
 
@@ -85,22 +87,21 @@
 
     localStorage.setItem("tagsArray", JSON.stringify(tagsArray));
 
-
+    var div1 = document.createElement("div");
+    div1.setAttribute("class","w3-container w3-white");
     for( var key in tagsArray )
     {
-      var div1 = document.createElement("div");
-      div1.setAttribute("class","w3-container w3-white");
 
       var div2 = document.createElement("div");
       div2.setAttribute("class","w3-cell-row");
 
       var div3 = document.createElement("div");
-      div3.setAttribute("class","w3-cell-middle");
+      div3.setAttribute("class","w3-cell-middle w3-center bottom-10");
 
       var tagName = document.createElement("button");
-      tagName.setAttribute("class","w3-btn w3-block");
+      tagName.setAttribute("class","w3-btn btn-width w3-round-xlarge w3-border w3-border-blue w3-pale-blue");
 
-      var h3 = document.createElement("h3");
+      var h3 = document.createElement("h5");
       var text = document.createTextNode([key]);
 
       var a = document.createElement("a");
