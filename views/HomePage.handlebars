@@ -141,7 +141,6 @@
 
 </body>
 
-<script src="/js/abtest.js"></script>
 <script>
 // show user userName
 var loginUserName = localStorage.getItem("userName");
@@ -149,13 +148,37 @@ $("#user").text(loginUserName);
 </script>
 
 <script>
-//shortcut for $(document).ready
-$(function(){
+
+'use strict';
+
+$(document).ready(function() {
 if(window.location.hash) {
 var hash = window.location.hash;
 $(hash).appendTo("body").modal('show');
-
 }
+initializePage();
 });
+
+function initializePage() {
+	$(".tagsBtn").click(clickTagsBtn);
+}
+
+function clickTagsBtn(e) {
+  console.log("gtag");
+  ga("send", "event", 'tagsview', 'click');
+}
+
+
+// //shortcut for $(document).ready
+// $(function(){
+// if(window.location.hash) {
+// var hash = window.location.hash;
+// $(hash).appendTo("body").modal('show');
+//
+// }
+// });
+
+
+
 </script>
 </html>

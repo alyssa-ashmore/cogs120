@@ -57,7 +57,6 @@
 
 </html>
 
-<script src="/js/abtest.js"></script>
 <script>
 
 var sort;
@@ -78,8 +77,12 @@ $(document).ready(function(){
     document.getElementById("sort").innerHTML = "Past Entries by " + sort ;
     $('#sortentrydates').hide();
     $('#sortentrytags').show();
+    console.log("gtag");
+    ga("send", "event", 'tagsview', 'click');
   });
 });
+
+
 
 
 </script>
