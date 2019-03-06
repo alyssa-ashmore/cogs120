@@ -29,7 +29,7 @@ const restartBtn = document.getElementById('btn4');
 
 //elem.style.opacity = 0; moved to Set
 let duration = 3;
-var currentTimeScale = tl.timeScale(0.3); //sets current timeScale
+var currentTimeScale = tl.timeScale(0.03); //sets current timeScale
 let paused = tl.paused();
 tl.duration(1);
 
@@ -181,11 +181,9 @@ ga('send', 'pageview');
 
 <!-- light grey bg for large screens -->
 
-<body class="w3-light-grey w3-padding-16" onbeforeunload="return unloadPage()">
+<body class="w3-light-grey min-height: 100%; w3-padding-16">
 
-  <!-- w3-content defines a container for fixed size centered content,
-and is wrapped around the whole page content,-->
-  <div class="w3-content w3-white " style="max-width:800px; height:auto; max-height:800px">
+    <div class=" w3-content w3-white center w3-center w3-padding" style="width:90%; max-width:800px;height:95%">
     <!-- Grid
 
 <div class="w3-card-4">
