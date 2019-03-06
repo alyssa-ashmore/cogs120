@@ -1,3 +1,9 @@
+.introimg{
+  width: 80%;
+  height: auto;
+}
+}
+
 .center {
   margin: 0;
   position: absolute;
@@ -78,7 +84,7 @@
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
 }
 
-<<<<<<< HEAD
+
 /* removes underlines and blue color for new entry text */
 .w3-btn:hover {
   text-decoration: none;
@@ -89,8 +95,6 @@
 	content: "#";
 }
 
-=======
->>>>>>> fd61ba3a6ead47e3bf9b7ac204534ca08d137513
 /* style inputs and link buttons */
 input,
 .btn {
