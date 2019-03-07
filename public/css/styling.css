@@ -2,7 +2,7 @@
   width: 80%;
   height: auto;
 }
-}
+
 
 .center {
   margin: 0;
@@ -11,6 +11,13 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+.vcenter {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 #sort{
