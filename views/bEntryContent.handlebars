@@ -132,7 +132,8 @@
     var p2 = document.createElement("p");
     var content = document.createTextNode(localEntry[entrynumber].content);
     p2.appendChild(content);
-    p2.setAttribute("class", "title");
+    p2.setAttribute("style","max-width:200px; word-wrap: break-word; margin:auto;");
+
 
     div3.appendChild(p2);
 
@@ -143,7 +144,7 @@
     var div4 = document.createElement("div");
     div4.setAttribute("class","col-xs-10");
     div3.appendChild(div4);
-    
+
     var span1 = document.createElement("span");
     span1.setAttribute("class", "w3-tag");
     var span2 = document.createElement("span");
@@ -153,7 +154,7 @@
     span1.appendChild(span1text);
     span2.appendChild(span2text);
 
-  
+
     div4.appendChild(span1);
     div4.appendChild(span2);
 
