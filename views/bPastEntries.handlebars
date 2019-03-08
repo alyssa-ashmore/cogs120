@@ -41,11 +41,13 @@
 
     <!-- CONTENT-->
     <div class="w3-container">
-      <p class="title" id="sort">Past Entries</p>
-      <div class="w3-card w3-padding">
-        <button type="button mx-auto" class="btn btn-dark" id="dateBtn">Sort by Date</button>
-        <button type="button mx-auto" class="btn btn-dark" id="tagBtn">Sort by Tags</button>
+      <p class="title w3-margin" id="sort">Past Entries</p>
+
+      <div class="w3-bar w3-grey">
+        <button type="button mx-auto" class="w3-bar-item w3-border w3-border-grey" id="dateBtn"> Sort: Date</button>
+        <button type="button mx-auto" class="w3-bar-item w3-border w3-border-grey" id="tagBtn"> Sort: Tags</button>
       </div>
+      
       <div class="sortbox" id="sortentrydates">{{>bdates}}</div>
       <div class="sortbox" id="sortentrytags">{{>btags}}</div>
     </div>

@@ -81,7 +81,7 @@
     for( var key in tagsArray )
     {
       var div1 = document.createElement("div");
-//      div1.setAttribute("class","w3-container w3-white");
+      div1.setAttribute("class","w3-container w3-white");
 
       var div2 = document.createElement("div");
       div2.setAttribute("class","w3-cell-row");
@@ -99,7 +99,6 @@
       a.setAttribute("href", "/btagentries?tag=" + [key] );
       a.setAttribute("style", "text-decoration:none;");
 
-
       h3.appendChild(text);
       div1.appendChild(div2);
       div2.appendChild(div3);
@@ -109,6 +108,7 @@
 
       var tagdiv = document.getElementById("tagdiv");
       tagdiv.appendChild(div1);
+      tagdiv.setAttribute("style", "overflow-y:scroll");
     }
 
 </script>
