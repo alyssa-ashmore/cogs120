@@ -11,7 +11,7 @@ const restartBtn = document.getElementById('btn4');
 
 //elem.style.opacity = 0; moved to Set
 let duration = 1;
-var currentTimeScale = tl.timeScale(0.3); //sets current timeScale
+var currentTimeScale = tl.timeScale(0.03); //sets current timeScale 3.6 sec / 0.03 = 120 sec = 2 min
 let paused = tl.paused();
 
 

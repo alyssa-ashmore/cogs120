@@ -16,6 +16,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <title></title>
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135480542-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
 </head>
 
 
@@ -23,7 +34,7 @@
   <!-- light grey bg for large screens -->
   <!-- w3-content defines a container for fixed size centered content,
   and is wrapped around the whole page content-->
-  <div class="w3-content w3-white " style="max-width:800px; height:500px; max-height:800px">
+  <div class=" w3-content w3-white center w3-center w3-padding" style="width:90%; height:92vh; max-height:650px; max-width:800px">
 
 
     <!-- Header -->
@@ -54,7 +65,7 @@
     </div>
     <! END CONTENT -->
 
-    <div class="w3-row w3-card-4 w3-padding-small w3-white">
+    <div class="w3-card w3-white w3-margin">
       <div class="col-xs-10 w3-center">
 
         <a href="/bpastentries"><button type="button mx-auto" class="btn btn-default" id="deleteBtn">Delete</button></a>
@@ -107,44 +118,46 @@
 
     var div2 = document.createElement("div");
     div2.setAttribute("class","w3-cell-row");
+    div1.appendChild(div2);
 
     var div3 = document.createElement("div");
-    div3.setAttribute("class","col-xs-10");
+    div3.setAttribute("class","w3-cell-middle");
+    div2.appendChild(div3);
 
+    var p = document.createElement("p");
+    var datetext = document.createTextNode(localEntry[entrynumber].date);
+    p.appendChild(datetext);
+    div3.appendChild(p);
+
+    var p2 = document.createElement("p");
+    var content = document.createTextNode(localEntry[entrynumber].content);
+    p2.appendChild(content);
+    p2.setAttribute("class", "title");
+
+    div3.appendChild(p2);
+
+    var div3 = document.createElement("div");
+    div3.setAttribute("class","w3-row w3-card-4 w3-padding-small w3-white");
+    div1.appendChild(div3);
+
+    var div4 = document.createElement("div");
+    div4.setAttribute("class","col-xs-10");
+    div3.appendChild(div4);
+    
     var span1 = document.createElement("span");
     span1.setAttribute("class", "w3-tag");
     var span2 = document.createElement("span");
     span2.setAttribute("class", "w3-tag");
+
+    console.log()
     var span1text = document.createTextNode(localEntry[entrynumber].tag1);
     var span2text = document.createTextNode(localEntry[entrynumber].tag2);
-
-    var div5 = document.createElement("div");
-    div5.setAttribute("class","w3-cell-middle");
-
-    var div6 = document.createElement("div");
-    div6.setAttribute("class","w3-cell-middle w3-center");
-
-    var h2 = document.createElement("h6");
-    var content = document.createTextNode(localEntry[entrynumber].content);
-    h2.appendChild(content);
-    h2.setAttribute("style","width:500px; word-wrap: break-word; margin:auto;")
-
-
-    var h3 = document.createElement("h4");
-    var datetext = document.createTextNode(localEntry[entrynumber].date);
-    h3.appendChild(datetext);
-    h3.setAttribute("class", "w3-block w3-right-align");
-
-    div1.appendChild(div2);
-    div2.appendChild(div3);
-    div3.appendChild(span1);
-    div3.appendChild(span2);
-    div3.appendChild(h3);
-    div2.appendChild(div5);
-    div5.appendChild(div6);
-    div6.appendChild(h2);
     span1.appendChild(span1text);
     span2.appendChild(span2text);
+
+  
+    div4.appendChild(span1);
+    div4.appendChild(span2);
 
     var entryContent = document.getElementById("entryContent");
     entryContent.appendChild(div1);
