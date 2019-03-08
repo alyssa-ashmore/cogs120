@@ -81,7 +81,7 @@
     for( var key in tagsArray )
     {
       var div1 = document.createElement("div");
-//      div1.setAttribute("class","w3-container w3-white");
+      div1.setAttribute("class","w3-container w3-white");
 
       var div2 = document.createElement("div");
       div2.setAttribute("class","w3-cell-row");
@@ -108,6 +108,7 @@
 
       var tagdiv = document.getElementById("tagdiv");
       tagdiv.appendChild(div1);
+      tagdiv.setAttribute("style", "overflow-y:scroll");
     }
 
 </script>
