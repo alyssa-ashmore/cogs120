@@ -52,7 +52,7 @@
          }
 });
 
-.getLoginStatus(checkLoginStatus);
+getLoginStatus(checkLoginStatus);
   </script>
 
   <script src="../js/proj.js"></script>
@@ -94,7 +94,7 @@ and is wrapped around the whole page content,-->
     <!--Logo-->
 
     <div class="w3-panel w3-center">
-      <div class="jumbotron">
+      <!-- <div class="jumbotron"> -->
   <div class="billboard" style=" background: url(middle.png)center no-repeat;
   width: 100%;
   height: 100%;
@@ -106,7 +106,7 @@ and is wrapped around the whole page content,-->
     z-index:1;"></div>
 
 <div id="cont" class="content" style="position:relative; z-index:2;">
-  <h4 style= "font-family: 'Arial'; color: DarkTurquoise;">Clear your mind. Relax.<br><br>
+  <h4 style= "font-family: 'Arial'; color:#00b7ab ;">Clear your mind. Relax.<br><br>
   Forget all of the rules concerning grammar.<br><br><br><br> </h4>
     <h1 class="display-4">Blabbl</h1>
   <hr class="my-4">
@@ -121,19 +121,17 @@ and is wrapped around the whole page content,-->
     What you are doing is freeing your mind.<br>
   </p>-->
   <p class="lead">
-        <button style="background-color: DarkTurquoise" class="w3-btn mediuw3-padding-16" onclick="document.getElementById('id01').style.display='block'">Login</button>
+        <button style="background-color: #00b7ab" class="w3-btn mediuw3-padding-16" onclick="document.getElementById('id01').style.display='block'">Login</button>
   </p>
 </div>
 </div>
-
-    </div>
     <!-- The Modal -->
     <div id="id01" class="w3-modal">
 
       <!-- Modal Content -->
-      <div class="w3-content  w3-white w3" style="max-width:500px">
+      <div class="w3-content  w3-white" style="max-width:500px">
 
-        <div class="container">
+        <div class="container" style->
       <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" title="Close Modal">&times;</span>
           <form action="/bhomepage">
             <div class="row">

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link href="css/styling.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styling.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -45,7 +45,7 @@
 
     <header class="w3-center w3-padding-16" ;>
       <div class="w3-bar w3-border">
-        <img src="instruction.png" onclick="document.getElementById('faq').style.display='block'" class="navicon w3-bar-item w3-button"></img>
+        <img src="instruction.png" onclick="document.getElementById('faq').style.display='block'" class="navicon w3-bar-item w3-button hovercolor"></img>
 
         <div id="faq" class="w3-modal" data-backdrop="false">
 
@@ -58,7 +58,7 @@
 
               <div class=" w3-content w3-panel">
                 <div class="w3-col">
-                  <a href="#new" class="btn btn-info w3-card w3-panel w3-hover-pink w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>make a new entry? <i class="fa fa-caret-down"></i></b></a>
+                  <a href="#new" class="btn btn-info w3-card w3-panel hovercolor w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>make a new entry? <i class="fa fa-caret-down"></i></b></a>
                   <div id="new" class=" w3-panel w3-card collapse">
                     <p>
                       1. Click on "New Entry" on the home page <br>
@@ -73,7 +73,7 @@
                     </p>
                   </div>
 
-                  <a href="#view" class="btn btn-info w3-hover-pink w3-panel w3-card w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>find</b> my past entries? <i class="fa fa-caret-down"></i></a>
+                  <a href="#view" class="btn btn-info hovercolor w3-panel w3-card w3-padding-16 w3-button w3-block w3-left-align" data-toggle="collapse"> How do I <b>find</b> my past entries? <i class="fa fa-caret-down"></i></a>
                   <div id="view" class="collapse w3-card w3-panel">
                     <p>
                       1. Scroll to see a list of all the tags you have picked <br>
@@ -84,7 +84,7 @@
                     </p>
                   </div>
 
-                  <a href="#date" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-card w3-button w3-block w3-left-align" data-toggle="collapse"> How do I view my past entries sorted by <b>date</b>? <i class="fa fa-caret-down"></i></a>
+                  <a href="#date" class="btn btn-info w3-panel hovercolor w3-padding-16 w3-card w3-button w3-block w3-left-align" data-toggle="collapse"> How do I view my past entries sorted by <b>date</b>? <i class="fa fa-caret-down"></i></a>
                   <div id="date" class="collapse w3-card w3-panel">
                     <p>
                       1. Click on "Entries" on the home page <br>
@@ -95,7 +95,7 @@
                   </div>
 
                   <H4></H4>
-                  <a href="#userview" class="btn btn-info w3-panel w3-hover-pink w3-padding-16 w3-card w3-button w3-block w3-left-align" data-toggle="collapse"> How do I find my <b>profile</b>? <i class="fa fa-caret-down"></i></a>
+                  <a href="#userview" class="btn btn-info w3-panel hovercolor w3-padding-16 w3-card w3-button w3-block w3-left-align" data-toggle="collapse"> How do I find my <b>profile</b>? <i class="fa fa-caret-down"></i></a>
                   <div id="userview" class="collapse w3-card w3-panel">
                     <p>
                       1. Click on “Profile” button <br>
@@ -141,7 +141,7 @@
             <div class=" w3-cell-middle">
 
               <a href="/bprompt1">
-                <button class="w3-btn w3-hover-teal">
+                <button class="w3-btn hovercolor">
                   <h2><i class="fas fa-edit fa-5x"></i><br>New Entry</h2>
                 </button></a>
 
@@ -154,7 +154,7 @@
             <div class=" w3-cell-middle">
               <div class="w3-bar">
                 <a href="/bpastentries"> <button class="w3-button w3-black"> Entries</button></a>
-                <a href="/bprofile"> <button class="w3-button w3-teal">Profile</button></a>
+                <a href="/bprofile"> <button class="w3-button" style="color:white; background:#00b7ab">Profile</button></a>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@
 
       </div>
     </div>
-    
+
     {{>footer}}
   </div>
 

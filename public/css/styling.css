@@ -1,3 +1,8 @@
+.hovercolor:hover{
+  background-color: #00b7ab!important;
+  color:white;
+}
+
 .introimg{
   width: 80%;
   height: auto;
