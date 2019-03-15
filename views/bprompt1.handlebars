@@ -50,14 +50,14 @@
         <!-- Header -->
         {{>bheader}}
 
-    <p class="w3-xlarge" align="center">HOW ARE YOU FEELING TODAY?</p>
+    <p class="w3-xlarge w3-margin-top w3-margin-top" align="center">HOW ARE YOU FEELING TODAY?</p>
 
     <!-- CONTENT-->
     <div class="w3-container">
       <div class="w3-cell-row">
         <div class="w3-cell-middle">
           <a href="/bprompt2?tag1=happy"> <button id='happy' class="w3-btn w3-round-xlarge
-                        w3-border w3-border-blue">
+                        w3-border w3-border-blue w3-margin-top w3-margin-bottom">
               <h8>HAPPY</h8>
             </button></a>
         </div>
@@ -66,7 +66,7 @@
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
           <a href="/bprompt2?tag1=sad"> <button id='sad' class="w3-btn w3-round-xlarge
-                         w3-border w3-border-blue">
+                         w3-border w3-border-blue  w3-margin-bottom">
               <h8>SAD</h8>
             </button></a>
         </div>
@@ -75,7 +75,7 @@
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
           <a href="/bprompt2?tag1=grateful"><button id='grateful' class="w3-btn w3-round-xlarge
-                         w3-border w3-border-blue">
+                         w3-border w3-border-blue  w3-margin-bottom">
               <h8>GRATEFUL</h8>
             </button></a>
         </div>
@@ -84,7 +84,7 @@
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
           <a href="/bprompt2?tag1=content"> <button id='content' class="w3-btn w3-round-xlarge
-                         w3-border w3-border-blue" onclick='createNewEntry(this.id)'>
+                         w3-border w3-border-blue  w3-margin-bottom" onclick='createNewEntry(this.id)'>
               <h8>CONTENT</h8>
             </button></a>
         </div>
@@ -93,7 +93,7 @@
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
           <a href="/bprompt2?tag1=anxious"> <button id='anxious' class="w3-btn w3-round-xlarge
-                         w3-border w3-border-blue">
+                         w3-border w3-border-blue  w3-margin-bottom">
               <h8>ANXIOUS</h8>
             </button></a>
         </div>
@@ -103,7 +103,7 @@
       <div class="w3-cell-row">
         <div class=" w3-cell-middle">
 
-          <button class="w3-btn w3-round-xlarge w3-border w3-border-blue" onclick='show()'>
+          <button class="w3-btn w3-round-xlarge w3-border w3-border-blue " onclick='show()'>
             <h8 id="plus"> + </h8>
 
             <form action="/bprompt2?tag1=" method="GET">
